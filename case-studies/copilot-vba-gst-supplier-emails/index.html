@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Case Study: Copilot Chat Writes a VBA Macro for GST Supplier Emails | Faiyaz M Khairaz</title>
+<meta name="description" content="How a Bridgestone finance team member used Microsoft 365 Copilot Chat, with no paid Copilot licence, to build a VBA macro that sends one consolidated GST invoice-mismatch email per supplier. Video, steps and sample file.">
+<link rel="canonical" href="https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Faiyaz M Khairaz">
+<meta name="theme-color" content="#107C41">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Faiyaz M Khairaz">
+<meta property="og:title" content="Copilot Chat wrote the VBA. The finance team ran it.">
+<meta property="og:description" content="Case study: one consolidated GST mismatch email per supplier, built with Microsoft 365 Copilot Chat. Define, Generate, Test, Modify, Execute.">
+<meta property="og:url" content="https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/">
+<meta property="og:image" content="https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Copilot Chat wrote the VBA. The finance team ran it.">
+<meta name="twitter:image" content="https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/og.jpg">
+<link rel="icon" href="../../assets/img/favicon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"Article","headline":"Copilot Chat wrote the VBA. The finance team ran it.","description":"How a Bridgestone finance team member used Microsoft 365 Copilot Chat to build a VBA macro that sends one consolidated GST invoice-mismatch email per supplier.","image":"https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/og.jpg","datePublished":"2026-10-05","author":{"@type":"Person","name":"Faiyaz M Khairaz","url":"https://faiyazkhairaz.com/","jobTitle":"Freelance AI Trainer and Microsoft Certified Trainer"},"publisher":{"@type":"Person","name":"Faiyaz M Khairaz"},"mainEntityOfPage":"https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/"},
+{"@type":"VideoObject","name":"Copilot Chat to VBA: one GST mismatch email per supplier","description":"Define the problem, generate the code with Copilot Chat, test it, fix it with Copilot and execute it: 46 invoices, 12 suppliers, 12 emails.","thumbnailUrl":"https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/poster.jpg","uploadDate":"2026-10-05","duration":"PT1M9S","contentUrl":"https://faiyazkhairaz.com/case-studies/copilot-vba-gst-supplier-emails/copilot-vba-case-study.mp4"},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://faiyazkhairaz.com/"},{"@type":"ListItem","position":2,"name":"Case study: Copilot Chat and VBA for GST supplier emails"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#F4F8F6; --surface:#FFFFFF; --ink:#0F2233; --muted:#526273; --line:#D6E1DC;
+  --green:#107C41; --green-2:#21A366; --blue:#0F6CBD; --sky:#2899F5; --gold:#C99505; --gold-bright:#F2C811; --violet:#6A4FD0;
+  --tint-green:#E3F3EA; --tint-blue:#E3EFFA; --tint-gold:#FBF2D3; --tint-violet:#ECE8FA;
+  --hero:linear-gradient(125deg,#0A5C30 0%,#107C41 32%,#138A67 52%,#0F6CBD 100%);
+  --band:#0F2233; --band-ink:#EEF4F8; --band-muted:#A6B5C4;
+  --on-accent:#FFFFFF; --cell-head:#E9F0EC; --select:#107C41;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Public Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --w:1160px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0B1520; --surface:#122030; --ink:#EAF2F7; --muted:#A3B3C2; --line:#24384A;
+  --green:#2DBB72; --green-2:#3FD08A; --blue:#4BA3F0; --sky:#6DB8F7; --gold:#F2C811; --gold-bright:#F2C811; --violet:#A28CF5;
+  --tint-green:#123426; --tint-blue:#11283F; --tint-gold:#33290C; --tint-violet:#241D45;
+  --band:#060D15; --band-ink:#EAF2F7; --band-muted:#94A6B6; --on-accent:#06140C; --cell-head:#18283A; --select:#3FD08A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0B1520; --surface:#122030; --ink:#EAF2F7; --muted:#A3B3C2; --line:#24384A;
+  --green:#2DBB72; --green-2:#3FD08A; --blue:#4BA3F0; --sky:#6DB8F7; --gold:#F2C811; --gold-bright:#F2C811; --violet:#A28CF5;
+  --tint-green:#123426; --tint-blue:#11283F; --tint-gold:#33290C; --tint-violet:#241D45;
+  --band:#060D15; --band-ink:#EAF2F7; --band-muted:#94A6B6; --on-accent:#06140C; --cell-head:#18283A; --select:#3FD08A; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--w);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-0.01em}
+h2{font-size:clamp(30px,4vw,46px);font-weight:800}
+h3{font-size:22px;font-weight:700}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--gold-bright);outline-offset:3px;border-radius:6px}
+section{padding-block:clamp(56px,8vw,96px)}
+.lead{color:var(--muted);max-width:62ch;font-size:18px}
+.sec-head{display:grid;gap:14px;margin-bottom:36px}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:700;font-size:16px;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;line-height:1.2}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green);color:var(--on-accent)}
+.btn-green:hover{box-shadow:0 8px 20px color-mix(in srgb,var(--green) 35%,transparent)}
+.btn-white{background:#FFFFFF;color:#0A5C30}
+.btn-outline-white{border-color:rgba(255,255,255,.55);color:#FFFFFF;background:transparent}
+.btn-outline-white:hover{border-color:#FFFFFF}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.mark i{width:26px;height:26px;border-radius:7px;background:var(--hero);display:inline-grid;place-items:center;color:#fff;font-style:normal;font-size:13px;font-weight:800}
+.nav{display:flex;gap:22px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.top-cta{display:flex;align-items:center;gap:14px}
+.tel{font-weight:700;font-size:15px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.tel:hover{color:var(--green)}
+.nav a,.top .btn{white-space:nowrap}
+.nav{gap:18px!important;font-size:14.5px!important}
+@media (max-width:1250px){.nav{display:none}}
+@media (max-width:520px){.tel{display:none}}
+.top .btn{padding:9px 16px;font-size:14px}
+@media (max-width:900px){.nav{display:none}}
+footer{background:var(--band);color:var(--band-muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px calc(24px + 72px)}
+
+.float .fl{display:grid;text-align:left;line-height:1.15}
+.float .fl b{font-size:16px}
+.float .fl small{font-size:12px;font-weight:600;opacity:.85}
+.float svg{width:24px;height:24px}
+.float{padding:12px 20px 12px 16px;position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;box-shadow:0 8px 24px rgba(16,124,65,.4)}
+/* Case-study page */
+.mono{font-family:ui-monospace,"Cascadia Mono",Consolas,"JetBrains Mono",monospace}
+.cs-hero{background:var(--hero);color:#fff;padding-block:clamp(40px,6vw,72px) clamp(120px,14vw,170px)}
+.crumb{font-size:14px;font-weight:600;color:rgba(255,255,255,.8);display:flex;gap:8px;flex-wrap:wrap}
+.crumb a{color:#fff}
+.cs-hero h1{font-size:clamp(34px,5.4vw,64px);font-weight:800;margin:18px 0 18px;max-width:18ch}
+.cs-hero h1 em{font-style:normal;color:#FFE08A}
+.cs-hero .lead{color:rgba(255,255,255,.88);max-width:64ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:30px}
+.fact{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 16px}
+.fact small{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.fact b{display:block;font-size:16px;line-height:1.35;margin-top:4px}
+@media (max-width:860px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.facts{grid-template-columns:1fr}}
+.vidwrap{margin-top:calc(-1 * clamp(96px,12vw,140px));position:relative}
+.vidcard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:10px;box-shadow:0 30px 70px rgba(15,34,51,.18)}
+.vidcard video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background:#0F2233}
+.vidnote{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:12px 8px 4px;font-size:14px;color:var(--muted)}
+.vidnote a{font-weight:700;color:var(--green)}
+section.tight{padding-block:clamp(48px,7vw,80px)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.ba .card.after{border-color:color-mix(in srgb,var(--green) 45%,var(--line));background:linear-gradient(180deg,var(--tint-green),var(--surface))}
+.ba h3{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ba .tag{font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--tint-gold);color:var(--ink)}
+.ba .after .tag{background:var(--green);color:var(--on-accent)}
+.ba ul{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted)}
+.ba ul b{color:var(--ink)}
+@media (max-width:760px){.ba{grid-template-columns:1fr}}
+.steps{display:grid;gap:clamp(36px,6vw,64px);counter-reset:s}
+.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(20px,4vw,48px);align-items:center}
+.step:nth-child(even) .shot{order:-1}
+.step .who{display:inline-flex;gap:8px;align-items:center;font:700 12.5px var(--body);letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.who.you{background:var(--tint-gold);color:var(--ink)}
+.who.ai{background:var(--tint-blue);color:var(--blue)}
+.step h3{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:12px}
+.step h3 span{color:var(--green)}
+.step p{color:var(--muted)}
+.step p+p{margin-top:10px}
+.step .shot img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(15,34,51,.12);cursor:zoom-in}
+.prompt{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;font-size:15px;line-height:1.55;position:relative}
+.prompt .cp{position:absolute;top:8px;right:8px;font:700 12.5px var(--body);border:1px solid var(--line);background:var(--ground);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.prompt .lbl{display:block;font:700 12px var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.tip{margin-top:14px;font-size:15px;background:var(--tint-green);border-radius:12px;padding:12px 14px;color:var(--ink)}
+.tip b{color:var(--green)}
+@media (max-width:860px){.step{grid-template-columns:1fr}.step:nth-child(even) .shot{order:0}}
+.msg{background:var(--band);color:var(--band-ink);text-align:center}
+.msg .big{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,58px);line-height:1.08;letter-spacing:-.02em}
+.msg .big span{color:var(--gold-bright)}
+.msg .own{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:36px;text-align:left}
+.msg .own div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+.msg .own b{display:block;color:#fff;margin-bottom:4px}
+.msg .own p{color:var(--band-muted);font-size:15px}
+@media (max-width:860px){.msg .own{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.msg .own{grid-template-columns:1fr}}
+.life img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line)}
+.try{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:start}
+.dl{display:grid;gap:12px}
+.dl a{display:flex;gap:14px;align-items:center;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.dl a:hover{border-color:var(--green)}
+.dl i{flex:none;width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font:800 13px var(--body);font-style:normal;color:#fff}
+.dl b{display:block}
+.dl small{color:var(--muted);font-size:14px}
+ol.how{margin:0;padding-left:22px;display:grid;gap:8px;color:var(--muted)}
+ol.how b{color:var(--ink)}
+@media (max-width:860px){.try{grid-template-columns:1fr}}
+.cta{background:var(--hero);color:#fff;border-radius:24px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center}
+.cta img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:4px solid rgba(255,255,255,.8)}
+.cta h2{font-size:clamp(26px,3.4vw,38px)}
+.cta p{color:rgba(255,255,255,.88);margin:10px 0 18px;max-width:60ch}
+.cta .btns{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:640px){.cta{grid-template-columns:1fr}}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(6,13,21,.86);display:grid;place-items:center;padding:16px}
+.lb img{max-width:min(1400px,100%);max-height:88vh;border-radius:12px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="../../"><i>FK</i>Faiyaz M Khairaz</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="../../#about">About</a>
+      <a href="../../#programs">Programs</a>
+      <a href="../../#videos">Videos</a>
+      <a href="../">Case Studies</a>
+      <a href="../../#clients">Clients</a>
+      <a href="../../#enquiry">Enquire</a>
+    </nav>
+    <div class="top-cta"><a class="tel" href="tel:+919819006132">+91 98190 06132</a><a class="btn btn-green" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20saw%20your%20Copilot%20%2B%20VBA%20case%20study%20and%20would%20like%20to%20discuss%20training%20for%20my%20team." target="_blank" rel="noopener">WhatsApp me</a></div>
+  </div>
+</header>
+
+<main>
+  <div class="cs-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="../../">Home</a><span>›</span><a href="../">Case studies</a><span>›</span><span>Bridgestone · Finance team</span></div>
+      <h1>Copilot Chat wrote the VBA. <em>The finance team ran it.</em></h1>
+      <p class="lead">After a Copilot workshop with the Bridgestone finance team, one participant turned a recurring chore into one click: a VBA macro that sends each supplier a single, consolidated GST invoice-mismatch email. Microsoft 365 Copilot Chat wrote the code. They defined it, tested it and ran it.</p>
+      <div class="facts">
+        <div class="fact"><small>Client</small><b>Bridgestone, Finance team</b></div>
+        <div class="fact"><small>Tool</small><b>Microsoft 365 Copilot Chat, no paid Copilot licence</b></div>
+        <div class="fact"><small>Built</small><b>Excel VBA macro + classic Outlook</b></div>
+        <div class="fact"><small>Result</small><b>One email per supplier: every invoice, a grand total, the right CC</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap vidwrap">
+    <div class="vidcard">
+      <video controls playsinline preload="metadata" poster="poster.jpg" aria-label="Case study video: Copilot Chat to VBA in five steps">
+        <source src="copilot-vba-case-study.mp4" type="video/mp4">
+      </video>
+      <div class="vidnote"><span>69-second walkthrough, no sound needed. Numbers, suppliers and email addresses are sample data.</span><a href="#try">Get the sample file and macro ↓</a></div>
+    </div>
+  </div>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>The problem</h2><p class="lead">Invoices that don't match GSTR-2B have to be chased with the supplier so they can correct their GST return. The data was already in Excel. Writing the emails was the slow part.</p></div>
+      <div class="ba">
+        <div class="card"><h3><span class="tag">Before</span>Supplier by supplier</h3>
+          <ul><li><b>Filter</b> the mismatch sheet for one supplier</li><li><b>Copy</b> their invoice lines into an email and format the table</li><li><b>Add up</b> the tax and type the grand total</li><li><b>Look up</b> who goes in To and CC, write the subject</li><li><b>Repeat</b> for every supplier, and hope nothing was missed</li></ul></div>
+        <div class="card after"><h3><span class="tag">After</span>One click</h3>
+          <ul><li><b>One email per supplier</b>, however many invoice lines they have</li><li><b>All invoices in a table</b>: invoice no, date, taxable value, IGST, CGST, SGST, total tax</li><li><b>Grand total</b> calculated by the macro</li><li><b>To, CC and subject</b> taken straight from the sheet</li><li><b>Mail Log</b> sheet records every email that went out</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>Five steps: Define, Generate, Test, Modify, Execute</h2><p class="lead">This is the lifecycle I teach for building anything with Copilot. Copilot does the writing. You own every step that needs judgement.</p></div>
+      <div class="steps">
+        <div class="step">
+          <div><span class="who you">You</span><h3><span>1 ·</span> Define the problem</h3>
+            <p>Start with the sheet, not with Copilot. The table <span class="mono">GST</span> on <span class="mono">Final for Mismatch Inv</span> has one row per mismatched invoice, with the supplier code, invoice details, tax amounts, mail subject and To / CC addresses.</p>
+            <p>Then say what "done" looks like: one email per supplier, all their invoices, a grand total, recipients from the sheet, and a log.</p></div>
+          <div class="shot"><img src="1-define-the-problem.jpg" alt="Excel table of GST invoice mismatches: 46 invoices across 12 suppliers" width="1280" height="720"></div>
+        </div>
+        <div class="step">
+          <div><span class="who you">You</span><h3><span>1 ·</span> Describe it to Copilot Chat</h3>
+            <p>Plain English is enough. Name the sheet, the table, the columns and the result.</p>
+            <div class="prompt"><span class="lbl">Prompt</span><button class="cp" type="button">Copy</button><span class="txt">Excel table "GST" on sheet "Final for Mismatch Inv" has one row per invoice that doesn't match GSTR-2B: supplier code, supplier name, invoice no, date, taxable value, IGST, CGST, SGST, total tax, mail subject, To and CC emails. Write a VBA macro that sends ONE Outlook email per supplier with all its invoices in a table, a grand total, To and CC from the sheet, and logs each email in "Mail Log".</span></div>
+            <p class="tip"><b>Tip:</b> describe the columns. You don't need to paste invoice data into the chat.</p></div>
+          <div class="shot"><img src="1b-prompt-copilot-chat.jpg" alt="Typing the prompt into Microsoft 365 Copilot Chat" width="1280" height="720"></div>
+        </div>
+        <div class="step">
+          <div><span class="who ai">Copilot</span><h3><span>2 ·</span> Generate the code</h3>
+            <p>Copilot Chat returns a complete macro: it groups the rows by supplier code, builds an HTML table per supplier, adds the grand total and creates the Outlook email. Copy it.</p></div>
+          <div class="shot"><img src="2-generate-vba-code.jpg" alt="Copilot Chat generating the VBA macro" width="1280" height="720"></div>
+        </div>
+        <div class="step">
+          <div><span class="who you">You</span><h3><span>3 ·</span> Test the code</h3>
+            <p>In Excel, press <b>Alt + F11</b>, choose <b>Insert › Module</b>, paste, and press <b>F5</b>. Always test on a copy of the file.</p>
+            <p>First run: <span class="mono">Run-time error '9': Subscript out of range</span>. Copilot had guessed a column called "Supplier Name". The real header is "Name of the Supplier". Errors like this are normal, and they are why testing is your job.</p></div>
+          <div class="shot"><img src="3-test-runtime-error.jpg" alt="VBA editor showing Run-time error 9" width="1280" height="720"></div>
+        </div>
+        <div class="step">
+          <div><span class="who ai">Copilot</span><h3><span>4 ·</span> Modify it with Copilot</h3>
+            <p>Click <b>Debug</b>, note the highlighted line, and paste the error back into the same chat.</p>
+            <div class="prompt"><span class="lbl">Follow-up prompt</span><button class="cp" type="button">Copy</button><span class="txt">I got Run-time error '9': Subscript out of range on ListColumns("Supplier Name"). In my sheet that column is called "Name of the Supplier". Please fix it.</span></div>
+            <p class="tip"><b>Ask for a safety switch too:</b> a test mode that opens each email with <span class="mono">.Display</span> instead of sending it with <span class="mono">.Send</span>.</p></div>
+          <div class="shot"><img src="4-modify-with-copilot.jpg" alt="Copilot Chat fixing the column name and adding a test mode" width="1280" height="720"></div>
+        </div>
+        <div class="step">
+          <div><span class="who you">You</span><h3><span>5 ·</span> Execute it again</h3>
+            <p>Run it in test mode, open a few emails and check the totals against the sheet. When they are right, switch test mode off and run it for real.</p>
+            <p>Sample run: 46 invoice lines, 12 suppliers, 12 emails, each with its own invoice table, grand total and CC list, and 12 rows in the Mail Log.</p></div>
+          <div class="shot"><img src="5-execute-supplier-email.jpg" alt="Outlook email to one supplier with all invoices and a grand total" width="1280" height="720"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="msg">
+    <div class="wrap">
+      <p class="big">Code writing can now be outsourced.<br><span>Executing is in our hands.</span></p>
+      <div class="own">
+        <div><b>Knowing the process</b><p>Copilot didn't know who to email or why. The finance team did.</p></div>
+        <div><b>Testing on a copy</b><p>Never run new code on the live file first.</p></div>
+        <div><b>Reading the error</b><p>Spotting the column name was the whole fix.</p></div>
+        <div><b>Deciding to send</b><p>Display first, check the numbers, then send.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>The Copilot coding lifecycle</h2><p class="lead">Steps 3 and 4 repeat until the test passes. Most macros need one or two rounds.</p></div>
+      <div class="life"><img src="copilot-coding-lifecycle.jpg" alt="Lifecycle: Define, Generate, Test, Modify with Copilot when there is an error, then Execute" width="1280" height="720"></div>
+    </div>
+  </section>
+
+  <section id="try" class="alt tight">
+    <div class="wrap try">
+      <div><div class="sec-head" style="margin-bottom:20px"><h2>Try it yourself</h2><p class="lead">A sample workbook with the same structure (made-up suppliers and amounts, example.com addresses) and a tidied-up version of the macro.</p></div>
+        <ol class="how"><li><b>Open</b> the workbook and save it as <b>.xlsm</b> (macro-enabled).</li><li><b>Alt + F11</b> › File › Import File › choose <b>SendSupplierGSTEmails.bas</b>.</li><li>Leave <span class="mono">TEST_MODE = True</span> and press <b>F5</b>. Each email opens in Outlook. Nothing is sent.</li><li>Check the emails, then set <span class="mono">TEST_MODE = False</span> to send.</li></ol>
+        <p class="tip"><b>Note:</b> this needs classic Outlook for Windows. The new Outlook doesn't support VBA automation.</p></div>
+      <div class="dl">
+        <a href="gst-mismatch-sample.xlsx" download><i style="background:#107C41">XLSX</i><span><b>Sample workbook</b><small>46 invoices, 12 suppliers, Mail Log sheet</small></span></a>
+        <a href="SendSupplierGSTEmails.bas" download><i style="background:#0F6CBD">BAS</i><span><b>VBA macro</b><small>One email per supplier, with test mode</small></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta">
+        <img src="../../assets/img/faiyaz-m-khairaz-corporate-trainer.jpg" alt="Faiyaz M Khairaz" width="120" height="120">
+        <div><h2>Want your team building like this?</h2>
+          <p>I'm Faiyaz M Khairaz, a Freelance AI Trainer and Microsoft Certified Trainer. My Copilot and Advanced Excel workshops are built on your team's own processes, so people leave with automations like this one, not just slides.</p>
+          <div class="btns"><a class="btn btn-white" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20saw%20your%20Copilot%20%2B%20VBA%20case%20study%20and%20would%20like%20to%20discuss%20training%20for%20my%20team." target="_blank" rel="noopener">WhatsApp me</a><a class="btn btn-outline-white" href="../../#enquiry">Send an enquiry</a><a class="btn btn-outline-white" href="../">More case studies</a></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Faiyaz M Khairaz</span>
+    <span>Microsoft Certified Trainer and Freelance AI Trainer</span>
+    <span>Participant name withheld. Data shown is sample data.</span>
+  </div>
+</footer>
+
+<a class="btn btn-green float" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20saw%20your%20Copilot%20%2B%20VBA%20case%20study%20and%20would%20like%20to%20discuss%20training%20for%20my%20team." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="fl"><b>Talk to us</b><small>Connect on WhatsApp</small></span></a>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image"><img id="lbimg" src="" alt=""></div>
+
+<script>
+document.querySelectorAll('.prompt .cp').forEach(b=>b.addEventListener('click',()=>{
+  const t=b.parentElement.querySelector('.txt').textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1600);}).catch(()=>{b.textContent='Select text';});
+}));
+const lb=document.getElementById('lb'), lbi=document.getElementById('lbimg');
+document.querySelectorAll('.shot img,.life img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lbi.alt=i.alt;lb.hidden=false;}));
+lb.addEventListener('click',()=>{lb.hidden=true;});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true;});
+</script>
+</body>
+</html>
