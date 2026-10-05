@@ -15,7 +15,7 @@ A single-page site: plain HTML, CSS and JavaScript, plus one PHP file for the en
 | `assets/logos/` | Client logos, named as in the logo wall (for example `adani-group.png`) |
 | `assets/gallery/` | Training photos, `1.jpg` to `16.jpg` |
 | `case-studies/` | Case study pages: `index.html` lists them all (with Topic and Industry filters), one page per case study, shared `case-studies.css` and `case-studies.js` |
-| `case-studies/copilot-vba-gst-supplier-emails/` | Copilot + VBA case study in its own folder: page, video, step images, sample workbook and macro |
+| `case-studies/vba-macros-copilot-gst-supplier-emails/` | Copilot + VBA case study in its own folder: page, video, step images, sample workbook and macro |
 | `assets/case-studies/` | Photos and video covers used by the case studies |
 
 ## Publishing
