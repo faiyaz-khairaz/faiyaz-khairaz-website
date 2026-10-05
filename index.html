@@ -398,6 +398,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 .float .fl small{font-size:12px;font-weight:600;opacity:.85}
 .float svg{width:24px;height:24px}
 .float{padding:12px 20px 12px 16px;position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;box-shadow:0 8px 24px rgba(16,124,65,.4)}
+
+/* Case studies (homepage preview; full list in case-studies/) */
+.cs-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.cs-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+.cs-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px color-mix(in srgb,var(--ink) 12%,transparent)}
+.cs-card > img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.cs-card .in{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cs-card .kind{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.cs-card .kind img{width:20px;height:auto}
+.cs-card h3{font-size:20px}
+.cs-card p{color:var(--muted);font-size:15px}
+.cs-card .meta{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.cs-card .go{color:var(--green);font-weight:700}
+.cs-more{margin-top:24px}
 </style>
 
 </head>
@@ -411,6 +425,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <a href="#programs">Programs</a>
       <a href="#ways">Ways to train</a>
       <a href="#videos">Videos</a>
+      <a href="#case-studies">Case Studies</a>
       <a href="#clients">Clients</a>
       <a href="#enquiry">Enquire</a>
     </nav>
@@ -725,6 +740,36 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
           <figcaption>In session at Bridgestone</figcaption>
         </figure>
       </div>
+    </div>
+  </section>
+
+  <section id="case-studies">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Case Studies</h2>
+        <p class="lead">How I design training around each client's real work. Every program is built on the team's own scenarios. Client names are shared only with their permission.</p>
+      </div>
+      <div class="cs-cards">
+        <a class="cs-card" href="case-studies/ai-banking-copilot-enablement.html">
+          <img loading="lazy" decoding="async" src="assets/case-studies/ai-banking-copilot-video.jpg" alt="" width="1280" height="720">
+          <div class="in">
+            <span class="kind"><img src="assets/img/copilot-logo.png" alt="" width="20" height="18">AI · Banking</span>
+            <h3>Department-wise Microsoft 365 Copilot enablement for a leading bank</h3>
+            <p>Four one-day batches for AI Champions, Finance, Product and Legal &amp; Company Secretarial, on Basic and Premium licences.</p>
+            <div class="meta"><span>Client name withheld</span><span>Video</span><span class="go">Read case study →</span></div>
+          </div>
+        </a>
+        <a class="cs-card" href="case-studies/ai-supply-chain-rk-foodland-copilot.html">
+          <img loading="lazy" decoding="async" src="assets/case-studies/ai-supply-chain-rk-foodland-video.jpg" alt="" width="1280" height="720">
+          <div class="in">
+            <span class="kind"><img src="assets/img/copilot-logo.png" alt="" width="20" height="18">AI · Supply Chain</span>
+            <h3>Microsoft Copilot training for RK Foodland, on the Basic licence</h3>
+            <p>Hands-on training for India's integrated food supply chain partner, built around reports, client emails, inventory data and SOPs.</p>
+            <div class="meta"><span>Basic licence</span><span>Video</span><span class="go">Read case study →</span></div>
+          </div>
+        </a>
+      </div>
+      <p class="cs-more"><a class="btn btn-ghost" href="case-studies/index.html">See all case studies →</a></p>
     </div>
   </section>
 
