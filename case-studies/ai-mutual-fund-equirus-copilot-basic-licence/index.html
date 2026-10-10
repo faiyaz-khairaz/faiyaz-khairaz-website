@@ -231,6 +231,12 @@ ol.how b{color:var(--ink)}
 .fit p{color:var(--muted);font-size:15px}
 @media (max-width:860px){.fit{grid-template-columns:1fr 1fr}}
 @media (max-width:480px){.fit{grid-template-columns:1fr}}
+.sess{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sess figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 14px 34px rgba(15,34,51,.08)}
+.sess img{width:100%;height:auto;display:block;border-radius:12px;cursor:zoom-in}
+.sess figcaption{font-size:15px;color:var(--muted);padding:10px 6px 2px}
+.sess figcaption b{color:var(--ink)}
+@media (max-width:860px){.sess{grid-template-columns:1fr}}
 .disc{font-size:14px;color:var(--muted);margin-top:14px}
 </style>
 </head>
@@ -335,6 +341,19 @@ Never: give investment, legal or regulatory advice.</span></div>
     </div>
   </section>
 
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>Interactive by design</h2><p class="lead">This was not a lecture with slides. The Teams chat ran all day: the trainer checked in after every exercise, shared screens and shortcuts, and participants posted their answers, discoveries and finished dashboards as they went.</p></div>
+      <div class="sess">
+        <figure><img src="session-live-check-ins.jpg" alt="Teams chat: the trainer checks in after an exercise and participants reply within seconds; one participant shares that Prompt Coach can be used in Copilot" width="1600" height="900" loading="lazy"><figcaption><b>Live check-ins.</b> Every few minutes, the whole room answers in the chat.</figcaption></figure>
+        <figure><img src="session-guidance-and-exercise-pack.jpg" alt="Teams chat: the trainer shares where to find Search in Copilot, a screenshot shortcut, and the exercise pack of mutual fund workbooks" width="1600" height="900" loading="lazy"><figcaption><b>Guidance, shared live.</b> Where to click, shortcuts, and a ready exercise pack.</figcaption></figure>
+        <figure><img src="session-participants-share-builds.jpg" alt="Teams chat: three participants post screenshots of the executive dashboards they built, minutes apart" width="1600" height="900" loading="lazy"><figcaption><b>Participants share their builds.</b> Three dashboards in five minutes.</figcaption></figure>
+        <figure><img src="session-responsible-ai-and-feedback.jpg" alt="Teams chat: a prompt with a responsible-AI disclaimer, thank-you messages from participants, and the meeting length of 4 hours 46 minutes" width="1600" height="900" loading="lazy"><figcaption><b>Responsible AI to the end.</b> Disclaimers in the prompt, and feedback in the chat.</figcaption></figure>
+      </div>
+      <p class="note"><b>Privacy:</b> participant names and photos are blurred. All data used in the session was sample data created for training.</p>
+    </div>
+  </section>
+
   <section class="msg">
     <div class="wrap">
       <p class="big">Copilot builds fast.<br><span>Training teaches what to verify.</span></p>
@@ -408,7 +427,7 @@ document.querySelectorAll('.prompt .cp').forEach(b=>b.addEventListener('click',(
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1600);}).catch(()=>{b.textContent='Select text';});
 }));
 const lb=document.getElementById('lb'), lbi=document.getElementById('lbimg');
-document.querySelectorAll('.split img,.gal img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lbi.alt=i.alt;lb.hidden=false;}));
+document.querySelectorAll('.split img,.gal img,.sess img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lbi.alt=i.alt;lb.hidden=false;}));
 lb.addEventListener('click',()=>{lb.hidden=true;});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true;});
 </script>
