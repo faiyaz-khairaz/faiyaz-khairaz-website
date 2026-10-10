@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Microsoft Copilot Training on the Basic Licence: Equirus Wealth | Case Study | Faiyaz M Khairaz</title>
+<meta name="description" content="How Equirus Wealth's mutual fund and wealth teams used Microsoft 365 Copilot Chat, the basic licence included with Microsoft 365, to build role-based agents, notebooks, pages and executive dashboards in one day. Video and examples.">
+<link rel="canonical" href="https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Faiyaz M Khairaz">
+<meta name="theme-color" content="#107C41">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Faiyaz M Khairaz">
+<meta property="og:title" content="Your team already has Copilot: Equirus Wealth on the basic licence">
+<meta property="og:description" content="Case study: one day of Microsoft Copilot training for a mutual fund and wealth team, entirely on Copilot Chat (basic licence). Search vs Chat, Notebooks, role-based Agents, Pages and Artifacts.">
+<meta property="og:url" content="https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/">
+<meta property="og:image" content="https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your team already has Copilot: Equirus Wealth on the basic licence">
+<meta name="twitter:image" content="https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/og.jpg">
+<link rel="icon" href="../../assets/img/favicon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"Article","headline":"Microsoft Copilot Training on the Basic Licence for Equirus Wealth","description":"How a mutual fund and wealth team used Microsoft 365 Copilot Chat, included with Microsoft 365, to build role-based agents, notebooks, pages and executive dashboards in one day.","image":"https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/og.jpg","datePublished":"2026-10-10","author":{"@type":"Person","name":"Faiyaz M Khairaz","url":"https://faiyazkhairaz.com/","jobTitle":"Freelance AI Trainer and Microsoft Certified Trainer"},"publisher":{"@type":"Person","name":"Faiyaz M Khairaz"},"mainEntityOfPage":"https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/"},
+{"@type":"VideoObject","name":"Your team already has Copilot: Equirus Wealth on the basic licence","description":"What a mutual fund and wealth team built with Microsoft 365 Copilot Chat in one day of training: role-based agents, notebooks, pages and five executive dashboards on sample data.","thumbnailUrl":"https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/poster.jpg","uploadDate":"2026-10-10","duration":"PT1M29S","contentUrl":"https://faiyazkhairaz.com/case-studies/ai-mutual-fund-equirus-copilot-basic-licence/copilot-basic-licence-equirus-case-study.mp4"},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://faiyazkhairaz.com/"},{"@type":"ListItem","position":2,"name":"Copilot Case Studies","item":"https://faiyazkhairaz.com/case-studies/"},{"@type":"ListItem","position":3,"name":"Copilot on the Basic Licence: Equirus Wealth"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#F4F8F6; --surface:#FFFFFF; --ink:#0F2233; --muted:#526273; --line:#D6E1DC;
+  --green:#107C41; --green-2:#21A366; --blue:#0F6CBD; --sky:#2899F5; --gold:#C99505; --gold-bright:#F2C811; --violet:#6A4FD0;
+  --tint-green:#E3F3EA; --tint-blue:#E3EFFA; --tint-gold:#FBF2D3; --tint-violet:#ECE8FA;
+  --hero:linear-gradient(125deg,#0A5C30 0%,#107C41 32%,#138A67 52%,#0F6CBD 100%);
+  --band:#0F2233; --band-ink:#EEF4F8; --band-muted:#A6B5C4;
+  --on-accent:#FFFFFF; --cell-head:#E9F0EC; --select:#107C41;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Public Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --w:1160px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0B1520; --surface:#122030; --ink:#EAF2F7; --muted:#A3B3C2; --line:#24384A;
+  --green:#2DBB72; --green-2:#3FD08A; --blue:#4BA3F0; --sky:#6DB8F7; --gold:#F2C811; --gold-bright:#F2C811; --violet:#A28CF5;
+  --tint-green:#123426; --tint-blue:#11283F; --tint-gold:#33290C; --tint-violet:#241D45;
+  --band:#060D15; --band-ink:#EAF2F7; --band-muted:#94A6B6; --on-accent:#06140C; --cell-head:#18283A; --select:#3FD08A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0B1520; --surface:#122030; --ink:#EAF2F7; --muted:#A3B3C2; --line:#24384A;
+  --green:#2DBB72; --green-2:#3FD08A; --blue:#4BA3F0; --sky:#6DB8F7; --gold:#F2C811; --gold-bright:#F2C811; --violet:#A28CF5;
+  --tint-green:#123426; --tint-blue:#11283F; --tint-gold:#33290C; --tint-violet:#241D45;
+  --band:#060D15; --band-ink:#EAF2F7; --band-muted:#94A6B6; --on-accent:#06140C; --cell-head:#18283A; --select:#3FD08A; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--w);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-0.01em}
+h2{font-size:clamp(30px,4vw,46px);font-weight:800}
+h3{font-size:22px;font-weight:700}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--gold-bright);outline-offset:3px;border-radius:6px}
+section{padding-block:clamp(56px,8vw,96px)}
+.lead{color:var(--muted);max-width:62ch;font-size:18px}
+.sec-head{display:grid;gap:14px;margin-bottom:36px}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:700;font-size:16px;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;line-height:1.2}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green);color:var(--on-accent)}
+.btn-green:hover{box-shadow:0 8px 20px color-mix(in srgb,var(--green) 35%,transparent)}
+.btn-white{background:#FFFFFF;color:#0A5C30}
+.btn-outline-white{border-color:rgba(255,255,255,.55);color:#FFFFFF;background:transparent}
+.btn-outline-white:hover{border-color:#FFFFFF}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.mark i{width:26px;height:26px;border-radius:7px;background:var(--hero);display:inline-grid;place-items:center;color:#fff;font-style:normal;font-size:13px;font-weight:800}
+.nav{display:flex;gap:22px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.top-cta{display:flex;align-items:center;gap:14px}
+.tel{font-weight:700;font-size:15px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.tel:hover{color:var(--green)}
+.nav a,.top .btn{white-space:nowrap}
+.nav{gap:18px!important;font-size:14.5px!important}
+@media (max-width:1250px){.nav{display:none}}
+@media (max-width:520px){.tel{display:none}}
+.top .btn{padding:9px 16px;font-size:14px}
+@media (max-width:900px){.nav{display:none}}
+footer{background:var(--band);color:var(--band-muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px calc(24px + 72px)}
+
+.float .fl{display:grid;text-align:left;line-height:1.15}
+.float .fl b{font-size:16px}
+.float .fl small{font-size:12px;font-weight:600;opacity:.85}
+.float svg{width:24px;height:24px}
+.float{padding:12px 20px 12px 16px;position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;box-shadow:0 8px 24px rgba(16,124,65,.4)}
+/* Case-study page */
+.mono{font-family:ui-monospace,"Cascadia Mono",Consolas,"JetBrains Mono",monospace}
+.cs-hero{background:var(--hero);color:#fff;padding-block:clamp(40px,6vw,72px) clamp(120px,14vw,170px)}
+.crumb{font-size:14px;font-weight:600;color:rgba(255,255,255,.8);display:flex;gap:8px;flex-wrap:wrap}
+.crumb a{color:#fff}
+.cs-hero .topic{display:inline-block;margin-top:18px;font:700 13px var(--body);letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:999px}
+.cs-hero h1{font-size:clamp(34px,5.4vw,64px);font-weight:800;margin:14px 0 18px;max-width:24ch}
+.cs-hero h1 em{font-style:normal;color:#FFE08A}
+.cs-hero .lead{color:rgba(255,255,255,.88);max-width:64ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:30px}
+.fact{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 16px}
+.fact small{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.fact b{display:block;font-size:16px;line-height:1.35;margin-top:4px}
+@media (max-width:860px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.facts{grid-template-columns:1fr}}
+.vidwrap{margin-top:calc(-1 * clamp(96px,12vw,140px));position:relative}
+.vidcard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:10px;box-shadow:0 30px 70px rgba(15,34,51,.18)}
+.vidcard video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background:#0F2233}
+.vidnote{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:12px 8px 4px;font-size:14px;color:var(--muted)}
+.vidnote a{font-weight:700;color:var(--green)}
+section.tight{padding-block:clamp(48px,7vw,80px)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.ba .card.after{border-color:color-mix(in srgb,var(--green) 45%,var(--line));background:linear-gradient(180deg,var(--tint-green),var(--surface))}
+.ba h3{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ba .tag{font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--tint-gold);color:var(--ink)}
+.ba .after .tag{background:var(--green);color:var(--on-accent)}
+.ba ul{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted)}
+.ba ul b{color:var(--ink)}
+@media (max-width:760px){.ba{grid-template-columns:1fr}}
+.steps{display:grid;gap:clamp(36px,6vw,64px);counter-reset:s}
+.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(20px,4vw,48px);align-items:center}
+.step:nth-child(even) .shot{order:-1}
+.step .who{display:inline-flex;gap:8px;align-items:center;font:700 12.5px var(--body);letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.who.you{background:var(--tint-gold);color:var(--ink)}
+.who.ai{background:var(--tint-blue);color:var(--blue)}
+.step h3{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:12px}
+.step h3 span{color:var(--green)}
+.step p{color:var(--muted)}
+.step p+p{margin-top:10px}
+.step .shot img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(15,34,51,.12);cursor:zoom-in}
+.prompt{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;font-size:15px;line-height:1.55;position:relative}
+.prompt .cp{position:absolute;top:8px;right:8px;font:700 12.5px var(--body);border:1px solid var(--line);background:var(--ground);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.prompt .lbl{display:block;font:700 12px var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.tip{margin-top:14px;font-size:15px;background:var(--tint-green);border-radius:12px;padding:12px 14px;color:var(--ink)}
+.tip b{color:var(--green)}
+@media (max-width:860px){.step{grid-template-columns:1fr}.step:nth-child(even) .shot{order:0}}
+.msg{background:var(--band);color:var(--band-ink);text-align:center}
+.msg .big{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,58px);line-height:1.08;letter-spacing:-.02em}
+.msg .big span{color:var(--gold-bright)}
+.msg .own{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:36px;text-align:left}
+.msg .own div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+.msg .own b{display:block;color:#fff;margin-bottom:4px}
+.msg .own p{color:var(--band-muted);font-size:15px}
+@media (max-width:860px){.msg .own{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.msg .own{grid-template-columns:1fr}}
+.life img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line)}
+.try{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:start}
+.dl{display:grid;gap:12px}
+.dl a{display:flex;gap:14px;align-items:center;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.dl a:hover{border-color:var(--green)}
+.dl i{flex:none;width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font:800 13px var(--body);font-style:normal;color:#fff}
+.dl b{display:block}
+.dl small{color:var(--muted);font-size:14px}
+ol.how{margin:0;padding-left:22px;display:grid;gap:8px;color:var(--muted)}
+ol.how b{color:var(--ink)}
+@media (max-width:860px){.try{grid-template-columns:1fr}}
+.cta{background:var(--hero);color:#fff;border-radius:24px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center}
+.cta img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:4px solid rgba(255,255,255,.8)}
+.cta h2{font-size:clamp(26px,3.4vw,38px)}
+.cta p{color:rgba(255,255,255,.88);margin:10px 0 18px;max-width:60ch}
+.cta .btns{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:640px){.cta{grid-template-columns:1fr}}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(6,13,21,.86);display:grid;place-items:center;padding:16px}
+.lb img{max-width:min(1400px,100%);max-height:88vh;border-radius:12px}
+/* Equirus case study additions */
+.cp-line{height:6px;border-radius:999px;background:linear-gradient(90deg,#29AAF6,#48BA78,#F7CD28,#FF8048,#EE5896,#9C54E8);border:0;margin:0}
+.cs-hero .topic img{width:18px;height:auto;vertical-align:-3px;margin-right:8px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,48px);align-items:center}
+.split img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(15,34,51,.12);cursor:zoom-in}
+.split .lead+.lead{margin-top:12px}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.lic{display:grid;gap:12px;margin-top:22px}
+.lic div{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.lic .t{flex:none;font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-top:2px}
+.lic .basic .t{background:var(--green);color:var(--on-accent)}
+.lic .prem .t{background:var(--gold-bright);color:#2A2000}
+.lic b{display:block}
+.lic small{color:var(--muted);font-size:15px}
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.feat .f{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;overflow:hidden}
+.feat .f::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,#29AAF6,#48BA78,#F7CD28,#FF8048,#EE5896,#9C54E8)}
+.feat .n{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--green);color:var(--on-accent);font:800 15px var(--display);margin-bottom:14px}
+.feat h3{margin-bottom:8px}
+.feat p{color:var(--muted);font-size:16px}
+.feat p+p{margin-top:8px}
+.feat .use{display:block;margin-top:12px;font-size:14.5px;background:var(--tint-green);border-radius:10px;padding:8px 12px;color:var(--ink)}
+.feat .use b{color:var(--green)}
+@media (max-width:960px){.feat{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.feat{grid-template-columns:1fr}}
+.gal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.gal figure{margin:0;grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 12px 30px rgba(15,34,51,.08)}
+.gal figure:nth-child(4){grid-column:2 / span 2}
+.gal figure:nth-child(5){grid-column:4 / span 2}
+.gal img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top left;border-radius:10px;display:block;cursor:zoom-in}
+.gal figcaption{font-size:14px;color:var(--muted);padding:8px 6px 2px}
+@media (max-width:860px){.gal{grid-template-columns:1fr 1fr}.gal figure,.gal figure:nth-child(4),.gal figure:nth-child(5){grid-column:auto}}
+@media (max-width:520px){.gal{grid-template-columns:1fr}}
+.note{margin-top:18px;font-size:15px;color:var(--muted);background:var(--tint-gold);border-radius:12px;padding:12px 14px}
+.note b{color:var(--ink)}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.quotes blockquote{margin:0;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:16px;padding:20px 22px;font:700 20px/1.35 var(--display)}
+.quotes cite{display:block;margin-top:10px;font:500 14px var(--body);color:var(--muted);font-style:normal}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+.stats div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+.stats b{display:block;font:800 30px var(--display);color:var(--green)}
+.stats small{color:var(--muted);font-size:14px}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+.prompt .txt{white-space:pre-line}
+.fit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.fit div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.fit b{display:block;margin-bottom:4px}
+.fit p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.fit{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.fit{grid-template-columns:1fr}}
+.disc{font-size:14px;color:var(--muted);margin-top:14px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="../../"><i>FK</i>Faiyaz M Khairaz</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="../../#about">About</a>
+      <a href="../../#programs">Programs</a>
+      <a href="../../#videos">Videos</a>
+      <a href="../">Case Studies</a>
+      <a href="../../#clients">Clients</a>
+      <a href="../../#enquiry">Enquire</a>
+    </nav>
+    <div class="top-cta"><a class="tel" href="tel:+919819006132">+91 98190 06132</a><a class="btn btn-green" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20saw%20your%20Copilot%20basic%20licence%20case%20study%20and%20would%20like%20to%20discuss%20training%20for%20my%20team." target="_blank" rel="noopener">WhatsApp me</a></div>
+  </div>
+</header>
+
+<main>
+  <div class="cs-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="../../">Home</a><span>›</span><a href="../">Copilot Case Studies</a><span>›</span><span>Copilot on the Basic Licence: Equirus Wealth</span></div>
+      <span class="topic"><img src="../../assets/img/copilot-logo.png" alt="" width="18" height="16">Copilot Training · Mutual Funds &amp; Wealth</span>
+      <h1>Your Team Already Has Copilot. <em>Here's How Much It Can Already Do.</em></h1>
+      <p class="lead">One day of Microsoft Copilot training for the teams at Equirus Wealth, run entirely on Microsoft 365 Copilot Chat, the basic licence that comes with Microsoft 365. No premium licence. By the end of the session, participants were building role-based agents, working in shared notebooks and turning Excel workbooks into interactive executive dashboards.</p>
+      <div class="facts">
+        <div class="fact"><small>Client</small><b>Equirus Wealth: DCMs and teams from several groups</b></div>
+        <div class="fact"><small>Licence</small><b>Microsoft 365 Copilot Chat (basic) only</b></div>
+        <div class="fact"><small>Format</small><b>1 day, live virtual, 40+ participants</b></div>
+        <div class="fact"><small>Data</small><b>Sample mutual fund data built for the training</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap vidwrap">
+    <div class="vidcard">
+      <video controls playsinline preload="metadata" poster="poster.jpg" aria-label="Case study video: Copilot on the basic licence at Equirus Wealth">
+        <source src="copilot-basic-licence-equirus-case-study.mp4" type="video/mp4">
+      </video>
+      <div class="vidnote"><span>89-second overview with music. It also works with the sound off. All figures shown are fictitious sample data.</span><a href="#built">See what participants built ↓</a></div>
+    </div>
+  </div>
+
+  <section class="tight">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head" style="margin-bottom:0"><h2>On Microsoft 365? You already have Copilot.</h2>
+          <p class="lead">Many teams wait for the premium licence before they start with Copilot. They don't need to. Every Microsoft 365 work account includes Copilot Chat, and it already does a great deal.</p></div>
+        <div class="lic">
+          <div class="basic"><span class="t">Basic</span><span><b>Microsoft 365 Copilot Chat</b><small>Included with your Microsoft 365 licence at no extra cost. This whole program ran on it.</small></span></div>
+          <div class="prem"><span class="t">Premium</span><span><b>Microsoft 365 Copilot</b><small>A paid add-on licence, procured separately. It grounds Copilot in your work data (emails, meetings, chats and files) across the Microsoft 365 apps.</small></span></div>
+        </div>
+        <p class="tip"><b>I train on both.</b> Teams on the basic licence learn what they can do today. Teams with premium licences learn to get full value from them.</p>
+      </div>
+      <img src="m365-licence-includes-copilot-chat.jpg" alt="Diagram: a Microsoft 365 licence includes Microsoft 365 Copilot Chat (basic). Microsoft 365 Copilot (premium) is an add-on licence procured separately." width="1280" height="720">
+    </div>
+  </section>
+
+  <section class="alt tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>Six things we unlocked on the basic licence</h2><p class="lead">Each one was practised hands-on with mutual fund scenarios: distribution and sales funnel, fund flows and performance, client profitability and service.</p></div>
+      <div class="feat">
+        <div class="f"><span class="n">01</span><h3>Search vs Chat</h3><p>Search finds the file, email or meeting you need. Chat reasons over what you give it. Knowing which to use first saves a lot of retyping.</p><span class="use"><b>Used for:</b> finding the latest fund-flow workbook, then asking Chat to summarise it</span></div>
+        <div class="f"><span class="n">02</span><h3>Notebooks</h3><p>One place for a project's files, notes and conversations, so Copilot keeps the context and you don't start from zero each time.</p><span class="use"><b>Used for:</b> a notebook per review: distribution, funds, client profitability</span></div>
+        <div class="f"><span class="n">03</span><h3>Role-based Agents</h3><p>An agent with a fixed role, instruction set and output style. Write it once, reuse it every week.</p><span class="use"><b>Used for:</b> an Analyst Agent that reviews any MF workbook the same way</span></div>
+        <div class="f"><span class="n">04</span><h3>Pages</h3><p>Turn a good Copilot answer into an editable page you can refine, add to and share, instead of copying text out of the chat.</p><span class="use"><b>Used for:</b> a monthly business review draft</span></div>
+        <div class="f"><span class="n">05</span><h3>Sharing Notebooks</h3><p>Share a notebook so the team works from the same sources, the same instructions and the same history.</p><span class="use"><b>Used for:</b> one shared workspace per regional or RM team</span></div>
+        <div class="f"><span class="n">06</span><h3>Artifacts</h3><p>Ask Copilot Chat for something you can use, not just read: an interactive HTML dashboard built straight from the Excel data.</p><span class="use"><b>Used for:</b> the five executive dashboards below</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap split">
+      <img src="role-based-agents.jpg" alt="Don't teach random prompts. Build role-based agents: reusable role, reusable instructions, reusable output style." width="1280" height="720">
+      <div>
+        <div class="sec-head" style="margin-bottom:0"><h2>Don't teach random prompts. Build role-based agents.</h2>
+          <p class="lead">Copilot Chat on the basic licence doesn't keep your uploaded files from one chat to the next. So the program focused on what <b>does</b> carry over: a reusable role, a reusable instruction set and a reusable output style.</p></div>
+        <div class="prompt"><span class="lbl">Example agent instructions</span><button class="cp" type="button">Copy</button><span class="txt">Role: You are a mutual fund business analyst for our leadership team.
+Input: I will upload an Excel workbook (distribution, fund flows or client profitability).
+Do: List the sheets and what each one contains. Then give the five most important findings, each with the number that supports it and the sheet it came from.
+Check: State any assumption you make, such as how AUM or net flows are defined. If two sheets disagree, say so.
+Output: An executive summary in 5 bullets, a table of key figures, and 3 recommended actions.
+Never: give investment, legal or regulatory advice.</span></div>
+        <p class="tip"><b>Why it works:</b> the agent behaves the same way every time, so the whole team gets consistent, comparable outputs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="built" class="alt tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>What participants built, in one session</h2><p class="lead">The same three sample workbooks, five different executive dashboards. Each participant asked Copilot Chat for an interactive dashboard and then shaped it to the story they wanted to tell leadership.</p></div>
+      <div class="gal">
+        <figure><img src="participant-dashboard-1.jpg" alt="Executive management dashboard with filters and an executive narrative" width="1112" height="618" loading="lazy"><figcaption>Executive narrative with recommended actions</figcaption></figure>
+        <figure><img src="participant-dashboard-2.jpg" alt="Executive dashboard with KPI tiles, executive signals and monthly net flow charts" width="1291" height="592" loading="lazy"><figcaption>KPI tiles, executive signals and regional flows</figcaption></figure>
+        <figure><img src="participant-dashboard-3.jpg" alt="Executive dashboard with distribution, client profitability and risk tiles" width="1076" height="660" loading="lazy"><figcaption>Client profitability and risk flags</figcaption></figure>
+        <figure><img src="participant-dashboard-4.jpg" alt="Executive dashboard with net flows, fee revenue, region bars and risk indicators" width="1400" height="592" loading="lazy"><figcaption>Net flows, fee revenue and risk indicators</figcaption></figure>
+        <figure><img src="participant-dashboard-5.jpg" alt="Wealth distribution dashboard with scorecard, net flow trajectory and pipeline funnel" width="1018" height="673" loading="lazy"><figcaption>Distribution scorecard and pipeline funnel</figcaption></figure>
+      </div>
+      <p class="note"><b>Sample data only.</b> All data used in this program was created for training. Every figure shown is fictitious and does not represent Equirus Wealth or any of its clients. Participant names are withheld.</p>
+    </div>
+  </section>
+
+  <section class="msg">
+    <div class="wrap">
+      <p class="big">Copilot builds fast.<br><span>Training teaches what to verify.</span></p>
+      <p style="color:var(--band-muted);max-width:70ch;margin:20px auto 0">Every dashboard agreed on net flows: ₹1,048.4 Cr. But the AUM figure ranged from ₹6,432 Cr to ₹91,989 Cr, because each team defined AUM differently: a period-end snapshot, a sum of rows, or a client-level total. None of them was "wrong". Each was a definition someone had to choose. That conversation was one of the most useful moments of the day.</p>
+      <div class="own">
+        <div><b>Define the measure</b><p>Tell Copilot exactly how AUM or net flows should be calculated.</p></div>
+        <div><b>Ask for the source</b><p>Every number should come with the sheet it came from.</p></div>
+        <div><b>Compare outputs</b><p>When two answers differ, find out why before sharing.</p></div>
+        <div><b>Own the decision</b><p>Copilot drafts. People decide what goes to leadership.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>What participants said</h2></div>
+      <div class="quotes">
+        <blockquote>"Thank you for such a valuable training."<cite>Participant, Equirus Wealth</cite></blockquote>
+        <blockquote>"We can use Prompt Coach in Copilot."<cite>Participant, during the session</cite></blockquote>
+        <blockquote>"Thank you sir."<cite>Participant, Equirus Wealth</cite></blockquote>
+      </div>
+      <div class="stats">
+        <div><b>1 day</b><small>live virtual program</small></div>
+        <div><b>4h 46m</b><small>hands-on session</small></div>
+        <div><b>40+</b><small>participants</small></div>
+        <div><b>₹0</b><small>extra licence cost</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt tight">
+    <div class="wrap">
+      <div class="sec-head"><h2>Built for mutual fund and wealth teams</h2><p class="lead">The program uses mutual fund workbooks and scenarios, so every exercise looks like the team's own work.</p></div>
+      <div class="fit">
+        <div><b>Distribution &amp; sales</b><p>Funnel conversion, regional flows, RM team performance.</p></div>
+        <div><b>Funds &amp; investor flows</b><p>Gross and net flows, fund performance against benchmark.</p></div>
+        <div><b>Client profitability</b><p>Segment economics, loss-making clients, risk flags.</p></div>
+        <div><b>Service &amp; experience</b><p>Ticket volumes, resolution times, escalations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta">
+        <img src="../../assets/img/faiyaz-m-khairaz-corporate-trainer.jpg" alt="Faiyaz M Khairaz" width="120" height="120">
+        <div><h2>Bring this program to your team</h2>
+          <p>I'm Faiyaz M Khairaz, a Microsoft Certified Trainer with 22+ years in corporate training. I run Copilot programs on both the basic licence (Copilot Chat) and the premium licence (Microsoft 365 Copilot), built around your team's own work.</p>
+          <div class="btns"><a class="btn btn-white" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20saw%20your%20Copilot%20basic%20licence%20case%20study%20and%20would%20like%20to%20discuss%20training%20for%20my%20team." target="_blank" rel="noopener">WhatsApp me</a><a class="btn btn-outline-white" href="mailto:faiyaz@compufield.net?subject=Copilot%20training%20enquiry">Email faiyaz@compufield.net</a><a class="btn btn-outline-white" href="../">More case studies</a></div></div>
+      </div>
+      <p class="disc">This case study is for information only. Microsoft, Microsoft 365 and Copilot are trademarks of the Microsoft group of companies.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Faiyaz M Khairaz</span>
+    <span>Microsoft Certified Trainer and Freelance AI Trainer</span>
+    <span>Participant names withheld. Data shown is sample data.</span>
+  </div>
+</footer>
+
+<a class="btn btn-green float" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20saw%20your%20Copilot%20basic%20licence%20case%20study%20and%20would%20like%20to%20discuss%20training%20for%20my%20team." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="fl"><b>Talk to us</b><small>Connect on WhatsApp</small></span></a>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image"><img id="lbimg" src="" alt=""></div>
+
+<script>
+document.querySelectorAll('.prompt .cp').forEach(b=>b.addEventListener('click',()=>{
+  const t=b.parentElement.querySelector('.txt').textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1600);}).catch(()=>{b.textContent='Select text';});
+}));
+const lb=document.getElementById('lb'), lbi=document.getElementById('lbimg');
+document.querySelectorAll('.split img,.gal img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lbi.alt=i.alt;lb.hidden=false;}));
+lb.addEventListener('click',()=>{lb.hidden=true;});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true;});
+</script>
+</body>
+</html>
