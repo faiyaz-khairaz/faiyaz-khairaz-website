@@ -16,6 +16,7 @@ A single-page site: plain HTML, CSS and JavaScript, plus one PHP file for the en
 | `assets/gallery/` | Training photos, `1.jpg` to `16.jpg` |
 | `case-studies/` | Case study pages: `index.html` lists them all (with Topic and Industry filters), one page per case study, shared `case-studies.css` and `case-studies.js` |
 | `case-studies/vba-macros-copilot-gst-supplier-emails/` | Copilot + VBA case study in its own folder: page, video, step images, sample workbook and macro |
+| `case-studies/ai-mutual-fund-equirus-copilot-basic-licence/` | Equirus Wealth Copilot (basic licence) case study in its own folder: page, video, poster, explainer images and participant dashboards |
 | `assets/case-studies/` | Photos and video covers used by the case studies |
 
 ## Publishing
