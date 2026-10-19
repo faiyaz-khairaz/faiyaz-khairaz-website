@@ -30,6 +30,33 @@ function respond($ok, $message, $code = 200) {
     exit;
 }
 
+// ---------- Simple "quick check" question (no third-party service) ----------
+// The form asks for a new sum such as "What is 4 + 7?" each time it loads.
+// The answer is never sent to the browser: the page gets a signed token, and only
+// the right answer matches it. The signing key is created on the server the first
+// time it is needed and is kept outside the website folder, so it is never public.
+function quick_check_key() {
+    $dir = rtrim(sys_get_temp_dir(), '/\\') . '/fk-enquiry-limits';
+    if (!is_dir($dir)) { @mkdir($dir, 0700, true); }
+    $file = $dir . '/quick-check.key';
+    $key = is_file($file) ? trim((string)@file_get_contents($file)) : '';
+    if (strlen($key) < 32) {
+        $key = bin2hex(random_bytes(32));
+        @file_put_contents($file, $key, LOCK_EX);
+    }
+    return $key;
+}
+function quick_check_sign($issued, $answer) {
+    return hash_hmac('sha256', $issued . '|' . (int)$answer, quick_check_key());
+}
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['quickcheck'])) {
+    header('Cache-Control: no-store');
+    $a = random_int(2, 9); $b = random_int(1, 9);
+    $issued = time();
+    echo json_encode(['ok' => true, 'question' => "What is $a + $b?", 'token' => $issued . '.' . quick_check_sign($issued, $a + $b)]);
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Please use the enquiry form on the website.', 405);
 }
@@ -67,6 +94,20 @@ $started = isset($_POST['started']) ? (int)$_POST['started'] : 0;
 $now_ms  = (int)round(microtime(true) * 1000);
 if ($started <= 0 || $started > $now_ms + 60000) {
     silently_drop();
+}
+// 2b. Quick check question: the answer must match the signed token from the form
+$qc_token  = isset($_POST['quickcheck_token']) ? (string)$_POST['quickcheck_token'] : '';
+$qc_answer = isset($_POST['quickcheck']) ? trim((string)$_POST['quickcheck']) : '';
+$qc_parts  = explode('.', $qc_token, 2);
+if (count($qc_parts) !== 2 || !ctype_digit($qc_parts[0])) {
+    silently_drop();                       // no token at all: a bot posting directly
+}
+$qc_issued = (int)$qc_parts[0];
+if (time() - $qc_issued > 6 * 3600 || $qc_issued > time() + 60) {
+    respond(false, 'The quick check has expired. Please answer the new question and send again.', 422);
+}
+if (!preg_match('/^\d{1,2}$/', $qc_answer) || !hash_equals(quick_check_sign($qc_issued, (int)$qc_answer), $qc_parts[1])) {
+    respond(false, 'Please answer the quick check question correctly.', 422);
 }
 // 3. Time check: nobody fills in this form in under 4 seconds
 if ($now_ms - $started < 4000) {
