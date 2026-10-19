@@ -145,6 +145,8 @@ $phrases = [
     'lead generation service', 'b2b database', 'buy followers', 'cryptocurrency', 'bitcoin',
     'investment opportunity', 'casino', 'loan offer', 'viagra', 'porn', 'unsubscribe',
     'virtual assistant service', 'chatbot for your website',
+    'search index', 'search results', 'submit your site', 'submit your website', 'indexsubmit',
+    'google index', 'get indexed', 'appear in google', 'domain expir', 'domain renewal',
 ];
 $lower = mb_strtolower($all_text);
 foreach ($phrases as $p) {
@@ -155,6 +157,25 @@ foreach ([$name, $company] as $v) {
     $compact = preg_replace('/\s+/', '', $v);
     if (mb_strlen($compact) >= 8 && preg_match_all('/[a-z][A-Z]/', $compact) >= 3) { $is_spam = true; }
 }
+// g. "Search index / SEO submission" scams that mention this website by name
+//    (real enquiries are about training, not about faiyazkhairaz.com itself)
+if (mb_strpos($lower, 'faiyazkhairaz') !== false && preg_match('/google|search|index|submit|seo|rank|traffic|domain|listing/', $lower)) { $is_spam = true; }
+// h. Email address that imitates this website (e.g. domains@search-faiyazkhairaz.com)
+//    or uses the website's own domain
+if (stripos($email, 'faiyazkhairaz') !== false) { $is_spam = true; }
+// i. Web addresses written without "http" (e.g. indexsubmit.pro): more than one in the message
+$bare_rx = '~\b[a-z0-9-]{2,}\.(com|net|org|info|biz|xyz|top|ru|cn|io|co|online|site|shop|store|click|link|pro|app|live|agency|digital|tech|ai|in)\b~i';
+$own_domain = strtolower((string)substr(strrchr($email, '@'), 1));
+$domains = [];
+if (preg_match_all($bare_rx, $message, $m)) {
+    foreach ($m[0] as $d) {
+        $d = strtolower($d);
+        if ($d !== 'faiyazkhairaz.com' && $d !== $own_domain) { $domains[$d] = true; }
+    }
+}
+if (count($domains) > 1) { $is_spam = true; }
+// j. Every training topic ticked, including "Other": bots tick every box
+if (count($topics) >= 8) { $is_spam = true; }
 // f. Name and company identical and long (bots often repeat one string in every field)
 if (mb_strlen($name) > 3 && mb_strtolower($name) === mb_strtolower($company) && $designation === '' && $message === '') { $is_spam = true; }
 if ($is_spam) {
