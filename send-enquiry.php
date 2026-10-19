@@ -51,19 +51,53 @@ function block($key, $max = 3000) {
 }
 
 // ---------- Spam protection ----------
+// Bots are given the normal "thank you" reply, so they don't learn they were blocked,
+// but nothing is emailed. Real visitors never see any of this.
+function silently_drop() {
+    respond(true, 'Thank you. Your enquiry has been sent, and I will get back to you shortly.');
+}
+
 // 1. Honeypot: a hidden field real people never fill in
 if (!empty($_POST['website'])) {
-    respond(true, 'Thank you. Your enquiry has been sent.');
+    silently_drop();
 }
-// 2. Time check: forms submitted less than 3 seconds after the page loaded are almost always bots
+// 2. The page's script fills in the time the form was opened. Spam scripts that post
+//    straight to this file don't run that script, so a missing value means a bot.
 $started = isset($_POST['started']) ? (int)$_POST['started'] : 0;
-if ($started > 0 && (time() * 1000 - $started) < 3000) {
+$now_ms  = (int)round(microtime(true) * 1000);
+if ($started <= 0 || $started > $now_ms + 60000) {
+    silently_drop();
+}
+// 3. Time check: nobody fills in this form in under 4 seconds
+if ($now_ms - $started < 4000) {
     respond(false, 'That was very quick. Please wait a moment and send again.', 429);
 }
-// 3. Simple rate limit: one enquiry per 30 seconds from the same visitor
-session_start();
-if (!empty($_SESSION['last_enquiry']) && time() - $_SESSION['last_enquiry'] < 30) {
-    respond(false, 'Your enquiry was just sent. Please wait a few seconds before sending another.', 429);
+// 4. Per-visitor rate limit by IP address: at most 3 enquiries an hour,
+//    plus a cap of 40 enquiries a day for the whole site
+function limit_file($name) {
+    $dir = rtrim(sys_get_temp_dir(), '/\\') . '/fk-enquiry-limits';
+    if (!is_dir($dir)) { @mkdir($dir, 0700, true); }
+    return $dir . '/' . $name;
+}
+function recent_hits($file, $window) {
+    $hits = [];
+    if (is_file($file)) {
+        foreach (explode("\n", (string)@file_get_contents($file)) as $t) {
+            if ($t !== '' && (time() - (int)$t) < $window) { $hits[] = (int)$t; }
+        }
+    }
+    return $hits;
+}
+$ip       = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 'unknown';
+$ip_file  = limit_file('ip-' . hash('sha256', $ip));
+$day_file = limit_file('site-' . date('Y-m-d'));
+$ip_hits  = recent_hits($ip_file, 3600);
+$day_hits = recent_hits($day_file, 86400);
+if (count($ip_hits) >= 3) {
+    respond(false, 'You have sent several enquiries already. Please WhatsApp +91 98190 06132 if it is urgent.', 429);
+}
+if (count($day_hits) >= 40) {
+    respond(false, 'The form is busy right now. Please email connect@faiyazkhairaz.com or WhatsApp +91 98190 06132.', 429);
 }
 
 // ---------- Read the form ----------
@@ -89,6 +123,42 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { $errors[] = 'a valid email add
 if ($phone !== '' && !preg_match('/^[0-9 +()\-.]{6,40}$/', $phone)) { $errors[] = 'a valid phone number'; }
 if ($errors) {
     respond(false, 'Please add ' . implode(', ', $errors) . '.', 422);
+}
+
+// ---------- Content checks for typical spam ----------
+$all_text  = implode(' ', [$name, $company, $designation, $location, $message]);
+$link_rx   = '~(https?://|www\.|\[url|<a\s|\b[a-z0-9-]+\.(com|net|org|info|biz|xyz|top|ru|cn|io|co|online|site|shop|store|click|link)\b(/|\s|$))~i';
+$is_spam   = false;
+// a. Links in the name, designation or location fields, or a web address in the company field
+//    (a company name like "Naukri.com" is still allowed)
+if (preg_match($link_rx, $name . ' ' . $designation . ' ' . $location)) { $is_spam = true; }
+if (preg_match('~(https?://|www\.)~i', $company)) { $is_spam = true; }
+// b. More than one link in the message
+if (preg_match_all('~(https?://|www\.)~i', $message) > 1) { $is_spam = true; }
+// c. Writing systems not used by the site's visitors (Cyrillic, Chinese, Japanese, Korean)
+if (preg_match('/[\x{0400}-\x{04FF}\x{3040}-\x{30FF}\x{4E00}-\x{9FFF}\x{AC00}-\x{D7AF}]/u', $all_text)) { $is_spam = true; }
+// d. Common spam phrases (SEO, marketing, crypto, loans and similar sales pitches)
+$phrases = [
+    'seo service', 'seo expert', 'search engine optimi', 'backlink', 'guest post', 'link building',
+    'first page of google', 'rank your website', 'ranking on google', 'increase your traffic', 'website traffic',
+    'web design service', 'website redesign', 'app development service', 'digital marketing service',
+    'lead generation service', 'b2b database', 'buy followers', 'cryptocurrency', 'bitcoin',
+    'investment opportunity', 'casino', 'loan offer', 'viagra', 'porn', 'unsubscribe',
+    'virtual assistant service', 'chatbot for your website',
+];
+$lower = mb_strtolower($all_text);
+foreach ($phrases as $p) {
+    if (mb_strpos($lower, $p) !== false) { $is_spam = true; break; }
+}
+// e. Random-looking names such as "hJkLqWeRtYz" that spam bots generate
+foreach ([$name, $company] as $v) {
+    $compact = preg_replace('/\s+/', '', $v);
+    if (mb_strlen($compact) >= 8 && preg_match_all('/[a-z][A-Z]/', $compact) >= 3) { $is_spam = true; }
+}
+// f. Name and company identical and long (bots often repeat one string in every field)
+if (mb_strlen($name) > 3 && mb_strtolower($name) === mb_strtolower($company) && $designation === '' && $message === '') { $is_spam = true; }
+if ($is_spam) {
+    silently_drop();
 }
 
 // ---------- Build the email ----------
@@ -126,7 +196,10 @@ if (!$sent) {
     respond(false, 'Sorry, the enquiry could not be sent right now. Please email connect@faiyazkhairaz.com or WhatsApp +91 98190 06132.', 500);
 }
 
-$_SESSION['last_enquiry'] = time();
+// Count this enquiry towards the rate limits
+$ip_hits[] = time();  $day_hits[] = time();
+@file_put_contents($ip_file, implode("\n", $ip_hits), LOCK_EX);
+@file_put_contents($day_file, implode("\n", $day_hits), LOCK_EX);
 
 // ---------- Optional acknowledgement to the visitor ----------
 if ($send_acknowledgement) {
