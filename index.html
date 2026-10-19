@@ -371,6 +371,7 @@ blockquote cite{display:block;margin-top:14px;font-style:normal;font-weight:700;
 .enq-form input:focus,.enq-form select:focus,.enq-form textarea:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green)}
 .enq-form .bad{border-color:#C0392B!important}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.qc-row{grid-template-columns:minmax(0,1fr);max-width:340px;margin-top:12px}
 .enq-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
 .enq-status{padding:14px 16px;border-radius:12px;font-weight:600;font-size:15px}
 .enq-status.ok{background:var(--tint-green);color:var(--green)}
@@ -750,8 +751,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
         <p class="lead">Real results from Microsoft Copilot training: teams in banking, manufacturing and supply chain putting Copilot to work on their own processes. Client names are shared only with their permission.</p>
       </div>
       <div class="cs-cards">
+        <a class="cs-card" href="case-studies/ai-shipping-anglo-eastern-copilot-claude.html">
+          <img decoding="async" src="assets/case-studies/ai-shipping-anglo-eastern-video.jpg" alt="" width="1280" height="720">
+          <div class="in">
+            <span class="kind"><img src="assets/img/copilot-logo.png" alt="" width="20" height="18"><img src="assets/img/claude-logo.png" alt="" width="20" height="20">Copilot + Claude · Shipping</span>
+            <h3>AI training in action: Copilot and Claude for Anglo-Eastern Ship Management India</h3>
+            <p>100% hands-on: real data, participants' own files, and dashboards created during the program.</p>
+            <div class="meta"><span>Anglo-Eastern</span><span>Video</span><span class="go">Read case study →</span></div>
+          </div>
+        </a>
         <a class="cs-card" href="case-studies/vba-macros-copilot-gst-supplier-emails/">
-          <img decoding="async" src="case-studies/vba-macros-copilot-gst-supplier-emails/poster.jpg" alt="" width="1280" height="720">
+          <img loading="lazy" decoding="async" src="case-studies/vba-macros-copilot-gst-supplier-emails/poster.jpg" alt="" width="1280" height="720">
           <div class="in">
             <span class="kind"><img src="assets/img/copilot-logo.png" alt="" width="20" height="18">VBA Macros with Copilot</span>
             <h3>Copilot Wrote the VBA. Bridgestone Finance Ran It.</h3>
@@ -766,15 +776,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
             <h3>Department-wise Microsoft 365 Copilot enablement for a leading bank</h3>
             <p>Four one-day batches for AI Champions, Finance, Product and Legal &amp; Company Secretarial, on Basic and Premium licences.</p>
             <div class="meta"><span>Client name withheld</span><span>Video</span><span class="go">Read case study →</span></div>
-          </div>
-        </a>
-        <a class="cs-card" href="case-studies/ai-supply-chain-rk-foodland-copilot.html">
-          <img loading="lazy" decoding="async" src="assets/case-studies/ai-supply-chain-rk-foodland-video.jpg" alt="" width="1280" height="720">
-          <div class="in">
-            <span class="kind"><img src="assets/img/copilot-logo.png" alt="" width="20" height="18">Copilot Training · Supply Chain</span>
-            <h3>Microsoft Copilot training for RK Foodland, on the Basic licence</h3>
-            <p>Hands-on training for India's integrated food supply chain partner, built around reports, client emails, inventory data and SOPs.</p>
-            <div class="meta"><span>Basic licence</span><span>Video</span><span class="go">Read case study →</span></div>
           </div>
         </a>
       </div>
@@ -950,6 +951,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
           <label for="eq-time">Timeline<select id="eq-time" name="timeline"><option value="">Select</option><option>This month</option><option>Next 1 to 3 months</option><option>Later this year</option><option>Just exploring</option></select></label>
         </div>
         <label class="msg" for="eq-msg">Message<textarea id="eq-msg" name="message" rows="4" placeholder="Anything else: team level, goals, preferred dates"></textarea></label>
+        <div class="fields qc-row"><label for="eq-qc"><span>Quick check: <b id="eq-qc-q" style="color:var(--ink)">loading…</b> *</span><input id="eq-qc" name="quickcheck" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" required placeholder="Your answer"></label></div>
+        <input type="hidden" name="quickcheck_token" id="eq-qc-token" value="">
         <div class="hp" aria-hidden="true"><label for="eq-web">Website<input id="eq-web" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
         <input type="hidden" name="started" id="eq-started" value="">
         <div class="enq-actions">
@@ -1107,15 +1110,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   var ef=document.getElementById('enqform'),es=document.getElementById('eq-status'),eb=document.getElementById('eq-send');
   document.getElementById('eq-started').value=String(Date.now());
   function showS(ok,msg){es.hidden=false;es.className='enq-status '+(ok?'ok':'err');es.textContent=msg;}
+  // Quick check question, created by send-enquiry.php on the website's own server
+  var qcQ=document.getElementById('eq-qc-q'),qcI=document.getElementById('eq-qc'),qcT=document.getElementById('eq-qc-token');
+  function loadQC(){qcI.value='';fetch(ef.getAttribute('action')+'?quickcheck=1',{headers:{'Accept':'application/json'},cache:'no-store'})
+    .then(function(r){return r.json();}).then(function(d){qcQ.textContent=d.question;qcT.value=d.token;})
+    .catch(function(){qcQ.textContent='please reload the page';});}
+  loadQC();
   ef.addEventListener('submit',function(e){
     e.preventDefault();
     var req=['eq-name','eq-company','eq-email'],miss=[];
     req.forEach(function(id){var el=document.getElementById(id);var bad=!el.value.trim()||(el.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()));el.classList.toggle('bad',bad);if(bad)miss.push(el);});
     if(miss.length){showS(false,'Please fill in your name, company and a valid work email.');miss[0].focus();return;}
+    var qcBad=!/^\d{1,2}$/.test(qcI.value.trim());qcI.classList.toggle('bad',qcBad);
+    if(qcBad){showS(false,'Please answer the quick check question.');qcI.focus();return;}
     eb.disabled=true;eb.textContent='Sending...';
     fetch(ef.getAttribute('action'),{method:'POST',body:new FormData(ef),headers:{'Accept':'application/json'}})
       .then(function(r){return r.json().catch(function(){throw new Error('bad');});})
-      .then(function(d){showS(!!d.ok,d.message||'Thank you. Your enquiry has been sent.');if(d.ok){ef.reset();document.getElementById('eq-started').value=String(Date.now());eb.textContent='Sent';setTimeout(function(){eb.textContent='Send enquiry';eb.disabled=false},4000);}else{eb.disabled=false;eb.textContent='Send enquiry';}})
+      .then(function(d){showS(!!d.ok,d.message||'Thank you. Your enquiry has been sent.');loadQC();if(d.ok){ef.reset();document.getElementById('eq-started').value=String(Date.now());eb.textContent='Sent';setTimeout(function(){eb.textContent='Send enquiry';eb.disabled=false},4000);}else{eb.disabled=false;eb.textContent='Send enquiry';}})
       .catch(function(){showS(false,'The form could not be sent from here. Please email connect@faiyazkhairaz.com or WhatsApp +91 98190 06132.');eb.disabled=false;eb.textContent='Send enquiry';});
   });
 
