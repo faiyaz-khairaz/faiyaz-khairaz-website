@@ -9,12 +9,12 @@
  * calendar still shows on office networks that block Google.
  *
  * Needs: the calendar set to "Make available to public" in Google Calendar.
- * Changes in Google Calendar show here within CACHE_MINUTES.
+ * Changes in Google Calendar show here within about a minute.
  */
 
 $ICS_URL       = 'https://calendar.google.com/calendar/ical/1q6n3rqcsvnal63nr944qm4htc%40group.calendar.google.com/public/basic.ics';
 $SHOW_TITLES   = true;  // false = show every booking as "Booked" instead of its title
-$CACHE_MINUTES = 5;     // how long a copy of the calendar is reused before fetching again
+$CACHE_MINUTES = 1;     // how long a copy of the calendar is reused before fetching again
 $MONTHS_AHEAD  = 6;     // how many months after the current one to include
 
 date_default_timezone_set('Asia/Kolkata');
