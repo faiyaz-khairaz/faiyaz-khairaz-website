@@ -144,7 +144,7 @@ foreach ($lines as $line) {
     if ($cur === null) continue;
     $p = parse_prop($line);
     if (!$p) continue;
-    [$name, $params, $value] = $p;
+    list($name, $params, $value) = $p;
     if ($name === 'EXDATE') {
         foreach (explode(',', $value) as $v) $cur['EXDATE'][] = [$v, $params];
     } elseif (in_array($name, ['SUMMARY', 'DTSTART', 'DTEND', 'DURATION', 'RRULE', 'RECURRENCE-ID', 'STATUS', 'UID'], true)) {
@@ -242,7 +242,7 @@ foreach ($events as $e) {
     if (isset($e['STATUS']) && strtoupper(trim($e['STATUS'][0])) === 'CANCELLED') continue;
     $st = ics_date($e['DTSTART'][0], $e['DTSTART'][1], $TZ);
     if (!$st) continue;
-    [$start, $allDay] = $st;
+    list($start, $allDay) = $st;
 
     if (isset($e['DTEND']) && ($en = ics_date($e['DTEND'][0], $e['DTEND'][1], $TZ))) {
         $len = $en[0]->getTimestamp() - $start->getTimestamp();
@@ -259,7 +259,7 @@ foreach ($events as $e) {
     $starts = isset($e['RRULE']) && !isset($e['RECURRENCE-ID']) ? expand($start, $e['RRULE'][0], $winEnd) : [$start];
 
     $ex = [];
-    foreach ($e['EXDATE'] as [$v, $prm]) {
+    foreach ($e['EXDATE'] as $exd) { list($v, $prm) = $exd;
         $x = ics_date($v, $prm, $TZ);
         if ($x) { $ex[$x[0]->format('Ymd His')] = true; $ex[$x[0]->format('Ymd')] = $x[1]; }
     }

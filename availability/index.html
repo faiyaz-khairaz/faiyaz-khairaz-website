@@ -130,11 +130,11 @@
     </div>
 
     <div class="tabs" role="tablist" aria-label="Choose a calendar view">
-      <button type="button" role="tab" id="tab-own" aria-selected="true" aria-controls="panel-own">Booked dates</button>
-      <button type="button" role="tab" id="tab-google" aria-selected="false" aria-controls="panel-google" tabindex="-1">Google Calendar</button>
+      <button type="button" role="tab" id="tab-google" aria-selected="true" aria-controls="panel-google">Google Calendar</button>
+      <button type="button" role="tab" id="tab-own" aria-selected="false" aria-controls="panel-own" tabindex="-1">Booked dates</button>
     </div>
 
-    <div id="panel-own" role="tabpanel" aria-labelledby="tab-own">
+    <div id="panel-own" role="tabpanel" aria-labelledby="tab-own" hidden>
       <div class="av">
         <div class="av-head">
           <button type="button" class="av-nav" id="av-prev" aria-label="Previous month">&#8249;</button>
@@ -155,12 +155,12 @@
       </div>
     </div>
 
-    <div id="panel-google" role="tabpanel" aria-labelledby="tab-google" hidden>
+    <div id="panel-google" role="tabpanel" aria-labelledby="tab-google">
       <div class="cal">
         <iframe id="gcal" title="Faiyaz M Khairaz training calendar in Google Calendar"
           data-src="https://calendar.google.com/calendar/embed?src=1q6n3rqcsvnal63nr944qm4htc%40group.calendar.google.com&amp;ctz=Asia%2FKolkata&amp;mode=MONTH&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;wkst=2"></iframe>
       </div>
-      <p class="cal-alt">Google Calendar not loading? Some office networks block Google, so use the <a href="#" id="back-own">Booked dates</a> view, which works everywhere. Times are in Indian Standard Time (IST).</p>
+      <p class="cal-alt">Google Calendar not loading? Some office networks block Google. Switch to <a href="#" id="back-own">Booked dates</a>, which works on any network. Times are in Indian Standard Time (IST).</p>
     </div>
   </div>
 </section>
@@ -200,6 +200,7 @@
   var gcal=document.getElementById('gcal');
   function show(k){
     tabs.forEach(function(t,i){var on=i===k;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;panels[i].hidden=!on;});
+    if(k===0&&!started){started=true;load();}
     if(k===1&&!gcal.src){
       var src=gcal.getAttribute('data-src');
       // On phones the month grid is cramped, so Google shows its agenda (list) view.
@@ -220,7 +221,7 @@
   var grid=document.getElementById('av-grid'),title=document.getElementById('av-month');
   var list=document.getElementById('av-list'),listH=document.getElementById('av-list-h'),msg=document.getElementById('av-msg');
   var prev=document.getElementById('av-prev'),next=document.getElementById('av-next');
-  var byDay={},events=[],minM,maxM,view,loaded=false;
+  var byDay={},events=[],minM,maxM,view,loaded=false,started=false;
 
   function todayIST(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
   function ym(s){return {y:+s.slice(0,4),m:+s.slice(5,7)-1};}
@@ -307,9 +308,10 @@
   prev.addEventListener('click',function(){if(idx(view)>minM){view=view.m===0?{y:view.y-1,m:11}:{y:view.y,m:view.m-1};render();}});
   next.addEventListener('click',function(){if(idx(view)<maxM){view=view.m===11?{y:view.y+1,m:0}:{y:view.y,m:view.m+1};render();}});
 
-  load();
+  // Google Calendar is the default view. "Booked dates" loads the first time it is opened.
+  show(1);
   // Keep it live while the page is open: check for calendar changes every 5 minutes.
-  setInterval(function(){if(!document.hidden)load();},300000);
+  setInterval(function(){if(!document.hidden&&started)load();},300000);
   document.addEventListener('visibilitychange',function(){if(!document.hidden&&loaded)load();});
 })();
 </script>
