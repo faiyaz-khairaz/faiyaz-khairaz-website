@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Copilot Basic vs Premium: Workshops for Both Licences | Faiyaz M Khairaz</title>
-<meta name="description" content="Copilot Basic (Copilot Chat) vs Premium (Microsoft 365 Copilot) explained. See what your team can already do on Basic, what Premium adds, and book Copilot workshops for both licences, starting with a free demo session.">
+<meta name="description" content="Copilot Basic (Copilot Chat) vs Premium (Microsoft 365 Copilot) explained. See what your team can already do on Basic, what Premium adds, and book Copilot workshops for both licences. Free demo session for HR and L&amp;D managers.">
 <link rel="canonical" href="https://faiyazkhairaz.com/copilot-basic-vs-premium/">
 <meta name="author" content="Faiyaz M Khairaz">
 <meta name="theme-color" content="#107C41">
@@ -202,8 +202,9 @@
       <p class="intro">Even on Copilot Basic, your team already has the latest GPT models, agents, skills and help in Outlook, at no extra cost. Premium connects Copilot to your emails, meetings, chats and files. We run hands-on Copilot workshops for both licences.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
         <a class="btn btn-white" href="#demo">Book a free Copilot demo session</a>
-        <a class="btn btn-outline-white" href="#services">See our Copilot workshops</a>
+        <a class="btn btn-outline-white" href="#video">Watch the 90-second video</a>
       </div>
+      <p style="margin-top:12px;font-size:15px;color:rgba(255,255,255,.85)">The free demo session is for HR and L&amp;D managers, up to 3 people per company.</p>
     </div>
   </div>
 </section>
@@ -276,20 +277,19 @@
   </div>
 </section>
 
-<!-- Video: remove "hidden" and set data-id to the YouTube video id when the explainer is ready -->
-<section id="video" hidden>
+<!-- Video: self-hosted MP4 in assets/video -->
+<section id="video">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Watch</span>
-      <h2>Copilot Basic vs Premium in 2 minutes</h2>
-      <p class="lead">The building blocks and the working day, explained by Faiyaz.</p>
+      <h2>Copilot Basic vs Premium in 90 seconds</h2>
+      <p class="lead">The building blocks, a working day on each licence, and our workshops for both. Turn the sound on for the music.</p>
     </div>
-    <div class="video" data-id="">
-      <button type="button" aria-label="Play video: Copilot Basic vs Premium explained">
-        <img src="../assets/img/copilot-basic-vs-premium.jpg" alt="" width="1600" height="900">
-        <span class="label">Basic vs Premium</span>
-        <span class="play" aria-hidden="true"></span>
-      </button>
+    <div class="video">
+      <video controls playsinline preload="none" poster="../assets/img/copilot-basic-vs-premium.jpg" width="1920" height="1080" style="position:absolute;inset:0;width:100%;height:100%;background:#0F2233">
+        <source src="../assets/video/copilot-basic-vs-premium.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="../assets/video/copilot-basic-vs-premium.mp4">Open the video</a>.
+      </video>
     </div>
   </div>
 </section>
@@ -378,10 +378,10 @@
         <div class="meta"><span>Half day or full day</span><span>Onsite or online</span><a class="go" href="#demo">Request this workshop →</a></div>
       </article>
       <article class="free">
-        <span class="chip">Free</span>
+        <span class="chip">Free · HR and L&amp;D managers</span>
         <h3>Copilot demo session</h3>
-        <p>30 minutes, online. We show Copilot live on work like yours and suggest what to train, and who would gain from Premium.</p>
-        <div class="meta"><span>30 minutes</span><span>Online</span><a class="go" href="#demo">Book the demo →</a></div>
+        <p>For HR and L&amp;D managers. We show Copilot live on work like your teams' and suggest which workshop fits, and who would gain from Premium.</p>
+        <div class="meta"><span>30 minutes, online</span><span>Up to 3 people</span><a class="go" href="#demo">Book the demo →</a></div>
       </article>
       <article>
         <span class="chip">Department batches</span>
@@ -406,7 +406,7 @@
     <div>
       <span class="eyebrow">Free Copilot demo session</span>
       <h2 style="margin-top:10px">See what Copilot can do for your company</h2>
-      <p class="lead" style="margin-top:12px">A free, 30-minute online session for your managers or L&amp;D team, on the licence you already have.</p>
+      <p class="lead" style="margin-top:12px">A free, 30-minute online session for <b>HR and L&amp;D managers</b>, for up to 3 people from your company. It helps you plan Copilot training for your teams. It is not a training session.</p>
       <ol class="steps">
         <li><h3>We learn about your team</h3><p>Your licence, your departments, and the work that takes the most time.</p></li>
         <li><h3>A live demo on work like yours</h3><p>Copilot on tasks your team does every day: reports, emails, Excel, presentations.</p></li>
@@ -421,8 +421,13 @@
       </div>
       <div class="two">
         <label for="d-licence">Your Copilot licence<select id="d-licence"><option>Basic (Copilot Chat)</option><option>Premium (Microsoft 365 Copilot)</option><option>A mix of both</option><option>Not sure</option></select></label>
-        <label for="d-size">Team size<select id="d-size"><option>Up to 25</option><option>26 to 100</option><option>101 to 500</option><option>More than 500</option></select></label>
+        <label for="d-size">Employees to train<select id="d-size"><option>Up to 25</option><option>26 to 100</option><option>101 to 500</option><option>More than 500</option></select></label>
       </div>
+      <div class="two">
+        <label for="d-role">Your role<select id="d-role"><option value="">Choose your role</option><option>HR manager</option><option>L&amp;D manager</option><option>HR head or CHRO</option><option>Other role</option></select></label>
+        <label for="d-people">People joining the demo<select id="d-people"><option>1</option><option>2</option><option>3</option></select></label>
+      </div>
+      <p class="err" id="d-role-msg" hidden>The free demo session is for HR and L&amp;D managers. For other roles, please <a href="../index.html#enquiry">send an enquiry</a> and we will reply with a proposal.</p>
       <label for="d-interest">Interested in<select id="d-interest"><option>Basic licence workshop</option><option>Premium licence workshop</option><option>Department-wise programs</option><option>Top management briefing</option><option>Not sure yet</option></select></label>
       <div class="two">
         <label for="d-depts">Departments to cover<input id="d-depts" type="text" placeholder="For example Finance, HR"></label>
@@ -430,7 +435,7 @@
       </div>
       <p class="err" id="d-err" hidden>Please add your name and company.</p>
       <button class="btn btn-green" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg>Request my demo on WhatsApp</button>
-      <p class="fine">Opens WhatsApp with your details filled in. Nothing is sent until you press send.</p>
+      <p class="fine">For HR and L&amp;D managers only, up to 3 people per company. Opens WhatsApp with your details filled in. Nothing is sent until you press send.</p>
       <p class="alt-links"><a href="../index.html#enquiry">Prefer email? Send an enquiry</a><a href="../availability/">Check my availability</a></p>
     </form>
   </div>
@@ -449,8 +454,9 @@
       <details><summary>Is Copilot Chat really included for our staff?</summary><p>Yes. Copilot Chat is included with eligible Microsoft 365 business plans at no extra cost. People sign in with their work account, and your IT team can pin it in Teams, Outlook and the Microsoft 365 app so everyone finds it.</p></details>
       <details><summary>Can Basic users use agents and skills?</summary><p>Yes. Basic users get the Word, Excel and PowerPoint agents and ready-made agents from the Agent Store, and can use agents your company builds on a pay-as-you-go basis. Skills are rolling out to Copilot Chat between October and mid-November 2026.</p></details>
       <details><summary>Is our data safe?</summary><p>Both licences include enterprise data protection when people sign in with their work account. Copilot only works with content each person already has permission to see, and Microsoft states that prompts and responses are not used to train its foundation models.</p></details>
-      <details><summary>Should we buy Premium for everyone?</summary><p>Usually not. Most teams get strong results on Basic once they are trained. Premium pays off for people who spend their day in email, meetings and reports. The free demo session helps you decide who needs which.</p></details>
+      <details><summary>Should we buy Premium for everyone?</summary><p>Usually not. Most teams get strong results on Basic once they are trained. Premium pays off for people who spend their day in email, meetings and reports. The free demo session for HR and L&amp;D managers helps you decide who needs which.</p></details>
       <details><summary>We have more than 2,000 users. What do Basic users still get?</summary><p>Since 15 April 2026, Basic users in companies of this size no longer get Copilot inside Word, Excel, PowerPoint and OneNote. They keep Copilot Chat with the latest models, the Word, Excel and PowerPoint agents, Copilot in Outlook, and enterprise data protection. A Basic licence workshop shows them how to get the most from these.</p></details>
+      <details><summary>Who can join the free demo session?</summary><p>The demo session is for HR and L&amp;D managers who are planning Copilot training, with up to 3 people from one company. It is a 30-minute planning session, not a training session. Your teams learn hands-on in the workshops.</p></details>
       <details><summary>Can the workshop use our own files and processes?</summary><p>Yes. Share sample reports or walk us through your processes, and the exercises are built from them. We sign NDAs.</p></details>
     </div>
     <p class="updated">Last reviewed: November 2026. Copilot features and licensing change often; we update this page every month.</p>
@@ -463,12 +469,12 @@
       <div class="ph"><img src="../assets/img/faiyaz-m-khairaz-corporate-trainer.jpg" alt="Faiyaz M Khairaz" width="170" height="170"></div>
       <div>
         <span class="eyebrow">Basic, Premium or a mix?</span>
-        <h2>Book a free Copilot demo session for your team</h2>
-        <p><b>Faiyaz M Khairaz</b>, Microsoft Certified Trainer with 22+ years in corporate training. Copilot workshops for Basic and Premium licences, for teams across 20 industries.</p>
+        <h2>Book a free Copilot demo session</h2>
+        <p><b>Faiyaz M Khairaz</b>, Microsoft Certified Trainer with 22+ years in corporate training. Copilot workshops for Basic and Premium licences, for teams across 20 industries. The free demo session is for HR and L&amp;D managers, up to 3 people.</p>
         <div class="row">
           <a class="phone" href="tel:+919819006132">+91 98190 06132</a>
           <a class="btn btn-white" href="#demo">Book a demo session</a>
-          <a class="btn btn-outline-white" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20would%20like%20a%20free%20Copilot%20demo%20session%20for%20my%20company." target="_blank" rel="noopener">WhatsApp me</a>
+          <a class="btn btn-outline-white" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20would%20like%20to%20know%20more%20about%20your%20Copilot%20workshops%20for%20my%20company." target="_blank" rel="noopener">WhatsApp me</a>
         </div>
       </div>
     </div>
@@ -483,7 +489,7 @@
     <a href="../index.html">Back to homepage</a>
   </div>
 </footer>
-<a class="btn btn-green float" href="#demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="fl"><b>Book a free demo</b><small>Copilot for your company</small></span></a>
+<a class="btn btn-green float" href="#demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="fl"><b>Book a free demo</b><small>For HR and L&amp;D managers</small></span></a>
 
 <script src="../case-studies/case-studies.js"></script>
 <script>
@@ -536,10 +542,16 @@
     [name,co].forEach(function(x){var bad=!x.value.trim();x.classList.toggle('bad',bad);if(bad)miss.push(x);});
     err.hidden=!miss.length;
     if(miss.length){miss[0].focus();return;}
+    var role=document.getElementById('d-role'),rmsg=document.getElementById('d-role-msg');
+    var okRole=role.value&&role.value!=='Other role';
+    role.classList.toggle('bad',!okRole);rmsg.hidden=okRole||!role.value;
+    if(!role.value){rmsg.hidden=true;err.textContent='Please choose your role.';err.hidden=false;role.focus();return;}
+    if(!okRole){role.focus();return;}
+    err.textContent='Please add your name and company.';
     var v=function(id){return document.getElementById(id).value.trim();};
-    var msg='Hi Faiyaz, I would like a free Copilot demo session for my company.\n\n'+
-      'Name: '+v('d-name')+'\nCompany: '+v('d-company')+'\nCopilot licence: '+v('d-licence')+
-      '\nTeam size: '+v('d-size')+'\nInterested in: '+v('d-interest')+(v('d-depts')?'\nDepartments: '+v('d-depts'):'')+'\nPreferred time: '+v('d-when');
+    var msg='Hi Faiyaz, I am planning Copilot training and would like the free Copilot demo session for HR and L&D managers.\n\n'+
+      'Name: '+v('d-name')+'\nRole: '+v('d-role')+'\nCompany: '+v('d-company')+'\nPeople joining: '+v('d-people')+'\nCopilot licence: '+v('d-licence')+
+      '\nEmployees to train: '+v('d-size')+'\nInterested in: '+v('d-interest')+(v('d-depts')?'\nDepartments: '+v('d-depts'):'')+'\nPreferred time: '+v('d-when');
     window.open('https://wa.me/919819006132?text='+encodeURIComponent(msg),'_blank','noopener');
   });
   /* Links to a workshop pre-select it in the form */
