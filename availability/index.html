@@ -29,10 +29,66 @@
 .notice svg{flex:none;width:28px;height:28px;color:var(--gold)}
 .notice b{display:block;font-family:var(--display);font-size:20px;margin-bottom:4px}
 .notice p{color:var(--muted)}
-.cal{margin-top:28px;background:#FFFFFF;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 40px color-mix(in srgb,var(--ink) 10%,transparent)}
+.notice p+p{margin-top:8px}
+.cal{background:#FFFFFF;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 40px color-mix(in srgb,var(--ink) 10%,transparent)}
 .cal iframe{display:block;width:100%;height:clamp(520px,72vh,720px);border:0}
 .cal-alt{margin-top:12px;font-size:14px;color:var(--muted)}
-.cal-alt a{color:var(--green);font-weight:700}
+.cal-alt a,.av-msg a{color:var(--green);font-weight:700}
+
+/* Booked colour */
+:root{--busy:#C2412D;--tint-busy:#FCE9E5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--busy:#FF8A73;--tint-busy:#3A1D18}}
+:root[data-theme="dark"]{--busy:#FF8A73;--tint-busy:#3A1D18}
+
+/* View switch */
+.tabs{display:inline-flex;gap:4px;margin-top:28px;margin-bottom:14px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;max-width:100%}
+.tabs button{font:700 15px/1 var(--body);color:var(--muted);background:none;border:0;border-radius:999px;padding:11px 18px;cursor:pointer;min-height:42px}
+.tabs button[aria-selected="true"]{background:var(--green);color:var(--on-accent)}
+.tabs button:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+
+/* Own calendar */
+.av{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,28px);box-shadow:0 18px 40px color-mix(in srgb,var(--ink) 10%,transparent)}
+.av-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.av-head h2{font-family:var(--display);font-size:clamp(22px,3vw,30px);margin:0;text-align:center;flex:1}
+.av-nav{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.av-nav:disabled{opacity:.35;cursor:default}
+.av-nav:not(:disabled):hover{border-color:var(--green);color:var(--green)}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin:14px 0 18px;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:14px;height:14px;border-radius:4px;display:inline-block;border:1px solid var(--line)}
+.sw-busy{background:var(--tint-busy);border-color:var(--busy)}
+.sw-open{background:var(--surface)}
+.sw-today{background:var(--surface);border:2px solid var(--green)}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.dow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;padding-bottom:4px}
+.day{min-height:92px;border:1px solid var(--line);border-radius:10px;padding:6px;display:flex;flex-direction:column;gap:4px;min-width:0;background:var(--surface)}
+.day.blank{border:0;background:none}
+.day .n{font-weight:700;font-size:14px}
+.day.past{opacity:.45}
+.day.today{border:2px solid var(--green)}
+.day.busy{background:var(--tint-busy);border-color:color-mix(in srgb,var(--busy) 45%,transparent)}
+.day.busy .n{color:var(--busy)}
+.chip{font-size:12px;line-height:1.25;font-weight:600;color:var(--ink);background:var(--surface);border-left:3px solid var(--busy);border-radius:4px;padding:3px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.more{font-size:12px;color:var(--muted);font-weight:600}
+.av-list{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+.av-list h3{font-family:var(--display);font-size:20px;margin:0 0 10px}
+.av-list ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.av-list li{display:grid;grid-template-columns:minmax(120px,auto) 1fr;gap:4px 16px;padding:10px 14px;border-radius:10px;background:var(--tint-busy);border-left:4px solid var(--busy)}
+.av-list li b{color:var(--busy)}
+.av-list li small{display:block;color:var(--muted);font-size:13px}
+.av-list .none{background:var(--tint-green);border-left-color:var(--green);display:block}
+.av-msg{margin-top:14px;font-size:14px;color:var(--muted)}
+.av-msg.err{color:var(--busy);font-weight:600}
+@media (max-width:640px){
+  .day{min-height:48px;padding:4px;align-items:center;justify-content:flex-start}
+  .day .n{font-size:13px}
+  .chip,.more{display:none}
+  .day.busy::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--busy)}
+  .dow{font-size:11px;letter-spacing:0}
+  .av-list li{grid-template-columns:1fr}
+  .tabs{display:flex}
+  .tabs button{flex:1;padding:11px 10px;font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -67,16 +123,45 @@
     <div class="notice" role="note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
       <div>
-        <b>Please check with us before confirming a date</b>
-        <p>This calendar is shared with multiple people, so a date that looks open here may already be in discussion. Send us your preferred date on WhatsApp or by phone, and we will confirm it before you finalise anything internally.</p>
+        <b>Marked dates are already booked</b>
+        <p>Any date with an entry on the calendar is booked for training and not available. Dates left blank are open.</p>
+        <p>The calendar is shared with several people, so an open date may already be in discussion. Please send us your preferred date on WhatsApp or by phone, and we will confirm it before you finalise anything internally.</p>
       </div>
     </div>
 
-    <div class="cal">
-      <iframe id="gcal" title="Faiyaz M Khairaz training calendar" loading="lazy"
-        src="https://calendar.google.com/calendar/embed?src=1q6n3rqcsvnal63nr944qm4htc%40group.calendar.google.com&amp;ctz=Asia%2FKolkata&amp;mode=MONTH&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;wkst=2"></iframe>
+    <div class="tabs" role="tablist" aria-label="Choose a calendar view">
+      <button type="button" role="tab" id="tab-own" aria-selected="true" aria-controls="panel-own">Booked dates</button>
+      <button type="button" role="tab" id="tab-google" aria-selected="false" aria-controls="panel-google" tabindex="-1">Google Calendar</button>
     </div>
-    <p class="cal-alt">Calendar not loading? <a href="https://calendar.google.com/calendar/embed?src=1q6n3rqcsvnal63nr944qm4htc%40group.calendar.google.com&amp;ctz=Asia%2FKolkata" target="_blank" rel="noopener">Open it in Google Calendar</a>. Times are in Indian Standard Time (IST).</p>
+
+    <div id="panel-own" role="tabpanel" aria-labelledby="tab-own">
+      <div class="av">
+        <div class="av-head">
+          <button type="button" class="av-nav" id="av-prev" aria-label="Previous month">&#8249;</button>
+          <h2 id="av-month" aria-live="polite">&nbsp;</h2>
+          <button type="button" class="av-nav" id="av-next" aria-label="Next month">&#8250;</button>
+        </div>
+        <div class="legend" aria-hidden="true">
+          <span><i class="sw sw-busy"></i>Booked</span>
+          <span><i class="sw sw-open"></i>Open (please confirm)</span>
+          <span><i class="sw sw-today"></i>Today</span>
+        </div>
+        <div class="grid" id="av-grid"></div>
+        <div class="av-list">
+          <h3 id="av-list-h">Booked dates</h3>
+          <ul id="av-list"><li class="none">Loading the calendar…</li></ul>
+        </div>
+        <p class="av-msg" id="av-msg">Loading the calendar…</p>
+      </div>
+    </div>
+
+    <div id="panel-google" role="tabpanel" aria-labelledby="tab-google" hidden>
+      <div class="cal">
+        <iframe id="gcal" title="Faiyaz M Khairaz training calendar in Google Calendar"
+          data-src="https://calendar.google.com/calendar/embed?src=1q6n3rqcsvnal63nr944qm4htc%40group.calendar.google.com&amp;ctz=Asia%2FKolkata&amp;mode=MONTH&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;wkst=2"></iframe>
+      </div>
+      <p class="cal-alt">Google Calendar not loading? Some office networks block Google, so use the <a href="#" id="back-own">Booked dates</a> view, which works everywhere. Times are in Indian Standard Time (IST).</p>
+    </div>
   </div>
 </section>
 
@@ -108,10 +193,124 @@
 </footer>
 <a class="btn btn-green float" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20checked%20your%20availability%20calendar%20and%20would%20like%20to%20confirm%20a%20training%20date%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="fl"><b>Confirm a date</b><small>Connect on WhatsApp</small></span></a>
 <script>
-// On phones the month grid is cramped, so show the agenda (list) view instead.
 (function(){
-  var f=document.getElementById('gcal');
-  if(f && window.matchMedia('(max-width:640px)').matches){ f.src=f.src.replace('mode=MONTH','mode=AGENDA'); }
+  /* ---------- Tabs: "Booked dates" (from this website) and Google Calendar ---------- */
+  var tabs=[document.getElementById('tab-own'),document.getElementById('tab-google')];
+  var panels=[document.getElementById('panel-own'),document.getElementById('panel-google')];
+  var gcal=document.getElementById('gcal');
+  function show(k){
+    tabs.forEach(function(t,i){var on=i===k;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;panels[i].hidden=!on;});
+    if(k===1&&!gcal.src){
+      var src=gcal.getAttribute('data-src');
+      // On phones the month grid is cramped, so Google shows its agenda (list) view.
+      if(window.matchMedia('(max-width:640px)').matches) src=src.replace('mode=MONTH','mode=AGENDA');
+      gcal.src=src;
+    }
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(i);});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var k=1-i;show(k);tabs[k].focus();}});
+  });
+  document.getElementById('back-own').addEventListener('click',function(e){e.preventDefault();show(0);tabs[0].focus();});
+
+  /* ---------- Booked dates, read live from the calendar by calendar-feed.php ---------- */
+  var FEED='calendar-feed.php';
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOW=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  var grid=document.getElementById('av-grid'),title=document.getElementById('av-month');
+  var list=document.getElementById('av-list'),listH=document.getElementById('av-list-h'),msg=document.getElementById('av-msg');
+  var prev=document.getElementById('av-prev'),next=document.getElementById('av-next');
+  var byDay={},events=[],minM,maxM,view,loaded=false;
+
+  function todayIST(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
+  function ym(s){return {y:+s.slice(0,4),m:+s.slice(5,7)-1};}
+  function idx(o){return o.y*12+o.m;}
+  function pad(n){return (n<10?'0':'')+n;}
+  function iso(y,m,d){return y+'-'+pad(m+1)+'-'+pad(d);}
+  function nice(s){var p=ym(s);return (+s.slice(8,10))+' '+MONTHS[p.m].slice(0,3)+' '+p.y;}
+  function weekday(s){return DOW[(new Date(Date.UTC(+s.slice(0,4),+s.slice(5,7)-1,+s.slice(8,10))).getUTCDay()+6)%7];}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+
+  function index(evs){
+    byDay={};
+    evs.forEach(function(ev){
+      var d=new Date(ev.start+'T00:00:00Z'),end=new Date(ev.end+'T00:00:00Z'),guard=0;
+      while(d<=end&&guard++<400){
+        var k=d.toISOString().slice(0,10);
+        (byDay[k]=byDay[k]||[]).push(ev);
+        d.setUTCDate(d.getUTCDate()+1);
+      }
+    });
+  }
+
+  function render(){
+    var y=view.y,m=view.m,today=todayIST();
+    title.textContent=MONTHS[m]+' '+y;
+    prev.disabled=idx(view)<=minM; next.disabled=idx(view)>=maxM;
+    grid.textContent='';
+    DOW.forEach(function(d){grid.appendChild(el('div','dow',d));});
+    var first=(new Date(Date.UTC(y,m,1)).getUTCDay()+6)%7,days=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+    for(var b=0;b<first;b++)grid.appendChild(el('div','day blank'));
+    for(var d=1;d<=days;d++){
+      var k=iso(y,m,d),evs=byDay[k]||[],c=el('div','day');
+      if(k<today)c.classList.add('past');
+      if(k===today)c.classList.add('today');
+      if(evs.length)c.classList.add('busy');
+      c.appendChild(el('span','n',d));
+      evs.slice(0,2).forEach(function(ev){var ch=el('span','chip',ev.title);ch.title=ev.title+(ev.time?' · '+ev.time:'');c.appendChild(ch);});
+      if(evs.length>2)c.appendChild(el('span','more','+'+(evs.length-2)+' more'));
+      c.setAttribute('aria-label',d+' '+MONTHS[m]+(evs.length?': booked, '+evs.map(function(e){return e.title;}).join(', '):': open'));
+      grid.appendChild(c);
+    }
+    // List of bookings in this month
+    listH.textContent='Booked in '+MONTHS[m]+' '+y;
+    list.textContent='';
+    var from=iso(y,m,1),to=iso(y,m,days);
+    var inMonth=events.filter(function(ev){return ev.end>=from&&ev.start<=to;});
+    if(!inMonth.length){list.appendChild(el('li','none','No bookings yet in '+MONTHS[m]+'. All dates are open, subject to confirmation.'));return;}
+    inMonth.forEach(function(ev){
+      var li=el('li'),when=el('b',null,ev.start===ev.end?weekday(ev.start)+', '+nice(ev.start):nice(ev.start)+' – '+nice(ev.end));
+      var what=el('span',null,ev.title);
+      if(ev.time)what.appendChild(el('small',null,ev.time+' IST'));
+      li.appendChild(when);li.appendChild(what);list.appendChild(li);
+    });
+  }
+
+  function load(){
+    fetch(FEED,{cache:'no-store',headers:{'Accept':'application/json'}})
+      .then(function(r){return r.json();})
+      .then(function(data){
+        if(!data||!data.ok)throw new Error('no data');
+        events=data.events||[];index(events);
+        var t=ym(todayIST());
+        minM=idx(ym(data.from));maxM=idx(ym(data.until));
+        if(!loaded){view=t;loaded=true;}
+        if(idx(view)<minM)view=ym(data.from);
+        if(idx(view)>maxM)view=ym(data.until);
+        render();
+        var u=new Date(data.updated);
+        msg.className='av-msg';
+        msg.textContent='Live from Faiyaz’s training calendar. Last checked '+u.toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit'})+' IST'+(data.stale?' (showing the last saved copy)':'')+'.';
+      })
+      .catch(function(){
+        if(loaded)return; // keep showing the last good data
+        msg.className='av-msg err';
+        msg.textContent='';
+        msg.append('The booked dates could not be loaded just now. Try the ');
+        var a=el('a',null,'Google Calendar view');a.href='#';a.addEventListener('click',function(e){e.preventDefault();show(1);});
+        msg.append(a,', or WhatsApp +91 98190 06132 and we will tell you the open dates.');
+        list.textContent='';list.appendChild(el('li','none','Calendar not available right now.'));
+        title.textContent=MONTHS[ym(todayIST()).m]+' '+ym(todayIST()).y;prev.disabled=next.disabled=true;
+      });
+  }
+
+  prev.addEventListener('click',function(){if(idx(view)>minM){view=view.m===0?{y:view.y-1,m:11}:{y:view.y,m:view.m-1};render();}});
+  next.addEventListener('click',function(){if(idx(view)<maxM){view=view.m===11?{y:view.y+1,m:0}:{y:view.y,m:view.m+1};render();}});
+
+  load();
+  // Keep it live while the page is open: check for calendar changes every 5 minutes.
+  setInterval(function(){if(!document.hidden)load();},300000);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&loaded)load();});
 })();
 </script>
 </body>
