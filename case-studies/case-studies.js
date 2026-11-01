@@ -40,3 +40,10 @@ document.querySelectorAll('.video[data-id]').forEach(function (box) {
   });
   apply();
 })();
+
+/* Site menu: loads the shared menu on every case study page. */
+(function () {
+  if (window.__siteNav || document.querySelector('script[src$="site-nav.js"]')) return;
+  var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/nav/site-nav.css'; document.head.appendChild(l);
+  var s = document.createElement('script'); s.src = '/assets/nav/site-nav.js'; document.head.appendChild(s);
+})();
