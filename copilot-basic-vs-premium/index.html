@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Copilot Basic vs Premium: Workshops for Both Licences | Faiyaz M Khairaz</title>
+<meta name="description" content="Copilot Basic (Copilot Chat) vs Premium (Microsoft 365 Copilot) explained. See what your team can already do on Basic, what Premium adds, and book Copilot workshops for both licences. Free demo session for HR and L&amp;D managers.">
+<link rel="canonical" href="https://faiyazkhairaz.com/copilot-basic-vs-premium/">
+<meta name="author" content="Faiyaz M Khairaz">
+<meta name="theme-color" content="#107C41">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Faiyaz M Khairaz">
+<meta property="og:title" content="Copilot Basic or Premium? Get the most from the licence you have.">
+<meta property="og:description" content="Your team can do a lot on Copilot Basic. See what Premium adds, and book Copilot workshops for both licences.">
+<meta property="og:url" content="https://faiyazkhairaz.com/copilot-basic-vs-premium/">
+<meta property="og:image" content="https://faiyazkhairaz.com/assets/img/copilot-basic-vs-premium.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://faiyazkhairaz.com/assets/img/copilot-basic-vs-premium.jpg">
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../case-studies/case-studies.css">
+<style>
+/* Copilot Basic vs Premium page only */
+:root{--gold-ink:#7A5B00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--gold-ink:#F2C811}}
+:root[data-theme="dark"]{--gold-ink:#F2C811}
+
+.cs-hero{padding-bottom:clamp(120px,14vw,190px)}
+.cs-hero .wrap{grid-template-columns:minmax(0,1fr)}
+.cs-hero h1{max-width:22ch}
+.hero-img{margin-top:calc(-1 * clamp(100px,12vw,160px));position:relative;z-index:2}
+.hero-img img{width:100%;height:auto;aspect-ratio:16/9;border-radius:20px;box-shadow:0 24px 60px color-mix(in srgb,var(--ink) 22%,transparent)}
+.facts{margin-top:22px}
+.facts .fact b.blue{color:var(--blue)}
+.facts .fact b.ink{color:var(--ink)}
+
+/* Shared Basic | Premium switch */
+.switch{display:inline-flex;justify-self:start;gap:4px;padding:5px;border-radius:999px;background:var(--surface);border:1px solid var(--line);max-width:100%}
+.switch button{appearance:none;font:700 15px/1.2 var(--body);border:0;border-radius:999px;padding:11px 20px;min-height:46px;cursor:pointer;color:var(--muted);background:none}
+.switch button small{display:block;font-weight:500;font-size:12.5px;opacity:.85}
+.switch button[aria-pressed="true"]{background:var(--green);color:var(--on-accent)}
+.switch button[data-m="premium"][aria-pressed="true"]{background:var(--blue)}
+@media (max-width:520px){.switch{display:flex;justify-self:stretch}.switch button{flex:1;padding:10px 8px;font-size:14px}}
+
+/* Building blocks */
+.blocks{display:grid;gap:22px}
+.stackwrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px 48px;align-items:end}
+@media (max-width:860px){.stackwrap{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column-reverse;gap:8px}
+.blk{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;font-weight:700;font-size:16px;border:1.5px solid transparent;line-height:1.3}
+.blk svg{flex:none;width:20px;height:20px}
+.blk small{display:block;font-weight:500;font-size:14px;color:var(--muted)}
+.blk.b{background:var(--tint-green);border-color:var(--green)}
+.blk.b svg{color:var(--green)}
+.blk.p{background:var(--tint-blue);border-color:var(--blue);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.blk.p svg{color:var(--blue)}
+.blocks[data-m="basic"] .blk.p{opacity:0;transform:translateY(-26px);visibility:hidden}
+.blocks[data-m="premium"] .blk.p{opacity:1;transform:none;visibility:visible}
+.blocks[data-m="premium"] .blk.p:nth-child(8){transition-delay:.08s}
+.blocks[data-m="premium"] .blk.p:nth-child(9){transition-delay:.16s}
+.blocks[data-m="premium"] .blk.p:nth-child(10){transition-delay:.24s}
+.found{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;border-top:3px solid var(--ink);padding-top:8px;margin-top:8px}
+.side{display:grid;gap:14px;align-content:end}
+.side .big{font-family:var(--display);font-size:clamp(24px,2.8vw,32px);font-weight:800;line-height:1.12}
+.side p{color:var(--muted)}
+.side p.big{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:600}
+.legend span{display:inline-flex;gap:8px;align-items:center}
+.legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.legend .lb{background:var(--tint-green);border:1.5px solid var(--green)}
+.legend .lp{background:var(--tint-blue);border:1.5px solid var(--blue)}
+.proof{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;border-radius:16px;padding:16px 20px;background:var(--tint-gold);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent)}
+.proof p{font-size:16px}
+.proof a{font-weight:700;color:var(--ink)}
+@media (prefers-reduced-motion: reduce){.blk.p{transition:none!important}}
+
+/* A day at work */
+.dayx{--mode:var(--green);--mode-tint:var(--tint-green);display:grid;gap:18px}
+.dayx[data-m="premium"]{--mode:var(--blue);--mode-tint:var(--tint-blue)}
+.day{list-style:none;margin:0;padding:0;display:grid;gap:12px;position:relative}
+.day::before{content:"";position:absolute;left:62px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.slot{display:grid;grid-template-columns:52px 22px minmax(0,1fr);gap:0 14px;align-items:start}
+.slot time{font-weight:800;font-size:14px;font-variant-numeric:tabular-nums;padding-top:16px;text-align:right;color:var(--muted)}
+.dot{width:22px;height:22px;border-radius:50%;margin-top:14px;border:3px solid var(--line);background:var(--surface);position:relative;z-index:1;transition:background .3s,border-color .3s}
+.slot.full .dot{border-color:var(--mode);background:var(--mode)}
+.slot.part .dot{border-color:var(--gold);background:var(--surface)}
+.slot .card{border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;display:grid;gap:6px;background:var(--surface);transition:border-color .3s}
+.slot.full .card{border-color:var(--mode)}
+.slot.part .card{border-style:dashed;border-color:var(--gold)}
+.card-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;align-items:center}
+.slot h3{font-family:var(--body);font-size:16.5px;font-weight:700}
+.state{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.slot.full .state{background:var(--mode-tint);color:var(--mode)}
+.slot.part .state{background:var(--tint-gold);color:var(--gold-ink)}
+.slot p{color:var(--muted);font-size:15.5px}
+.score{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;border-radius:14px;padding:14px 18px;background:var(--mode-tint);font-weight:600}
+.score b{font-family:var(--display);font-size:28px;font-weight:800;color:var(--mode);font-variant-numeric:tabular-nums}
+@media (max-width:520px){.day::before{left:50px}.slot{grid-template-columns:40px 22px minmax(0,1fr);gap:0 10px}.slot time{font-size:12.5px}}
+
+/* Comparison table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.tbl table{width:100%;min-width:640px;border-collapse:collapse;font-size:15.5px}
+.tbl th,.tbl td{padding:13px 18px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+.tbl thead th{border-top:0;background:var(--ground);font-size:14px}
+.tbl thead th.b{color:var(--green)}.tbl thead th.p{color:var(--blue)}
+.tbl tbody th{font-weight:600}
+.tbl td.y::before{content:"✓ ";color:var(--green);font-weight:800}
+.tbl td.p.y::before{color:var(--blue)}
+.tbl td.n{color:var(--muted)}
+.tbl td.n::before{content:"– ";font-weight:800}
+.note{margin-top:12px;font-size:14px;color:var(--muted);max-width:90ch}
+
+/* Who needs which */
+.fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.fit div{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--green);border-radius:16px;padding:22px;display:grid;gap:8px;align-content:start}
+.fit div.p{border-top-color:var(--blue)}
+.fit div.m{border-top-color:var(--gold)}
+.fit p{color:var(--muted);font-size:15.5px}
+.fit small{font-size:14px;font-weight:600}
+
+/* Services */
+.svc{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.svc > article{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;grid-column:span 2}
+.svc > article.wide{grid-column:span 3;border-width:2px}
+.svc > article.wide.b{border-color:var(--green)}
+.svc > article.wide.p{border-color:var(--blue)}
+@media (max-width:980px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}.svc > article,.svc > article.wide{grid-column:span 1}.svc > article.free{grid-column:1 / -1}}
+@media (max-width:640px){.svc{grid-template-columns:1fr}.svc > article.free{grid-column:auto}}
+.svc .chip{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--ground);color:var(--muted)}
+.svc .b .chip{background:var(--tint-green);color:var(--green)}
+.svc .p .chip{background:var(--tint-blue);color:var(--blue)}
+.svc .free .chip{background:var(--gold-bright);color:#2A2000}
+.svc h3{font-size:21px}
+.svc p{color:var(--muted);font-size:15.5px}
+.svc ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15.5px}
+.svc .meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;font-weight:600;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.svc .cs{font-size:14.5px}
+.svc .cs a{font-weight:700;color:var(--ink)}
+.svc .go{font-weight:700;color:var(--green);text-decoration:none;font-size:15px}
+.svc .go:hover{text-decoration:underline}
+.clients{margin-top:18px;font-size:15px;color:var(--muted)}
+.clients b{color:var(--ink)}
+
+/* Demo session */
+.demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 48px;align-items:start}
+@media (max-width:860px){.demo{grid-template-columns:1fr}}
+.demo .steps{grid-template-columns:1fr;margin-top:20px}
+.demo .steps li{padding:16px 18px}
+.demo .steps li::before{font-size:22px}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,28px);display:grid;gap:14px;box-shadow:0 18px 40px color-mix(in srgb,var(--ink) 10%,transparent)}
+.form h3{font-size:22px}
+.form label{display:grid;gap:6px;font-size:14.5px;font-weight:700}
+.form input,.form select{font:500 16px var(--body);padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--ground);color:var(--ink);min-height:48px;width:100%}
+.form .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:520px){.form .two{grid-template-columns:1fr}}
+.form .bad{border-color:#C0392B}
+.form .err{color:#C0392B;font-size:14px;font-weight:600}
+.form .fine{font-size:13.5px;color:var(--muted)}
+.form .alt-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14.5px}
+.form .alt-links a{color:var(--green);font-weight:700}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:880px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;padding:17px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--green);flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:18px;color:var(--muted)}
+.updated{margin-top:16px;font-size:14px;color:var(--muted)}
+</style>
+<link rel="stylesheet" href="/assets/nav/site-nav.css">
+<script src="/assets/nav/site-nav.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="../index.html"><i>FK</i>Faiyaz M Khairaz</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#programs">Programs</a>
+      <a href="../case-studies/index.html">Case Studies</a>
+      <a href="index.html" aria-current="page">Copilot Licences</a>
+      <a href="../availability/">Availability</a>
+      <a href="../index.html#enquiry">Enquire</a>
+    </nav>
+    <div class="top-cta"><a class="tel" href="tel:+919819006132">+91 98190 06132</a><a class="btn btn-green" href="#demo">Book a demo</a></div>
+  </div>
+</header>
+
+<main>
+<section class="cs-hero">
+  <div class="wrap">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span>Copilot Basic vs Premium</span></nav>
+      <div class="tags"><span class="tag">Microsoft 365 Copilot</span><span class="tag gold">Workshops for Basic and Premium</span></div>
+      <h1>Copilot Basic or Premium? Get the most from the licence you have.</h1>
+      <p class="intro">Even on Copilot Basic, your team already has the latest GPT models, agents, skills and help in Outlook, at no extra cost. Premium connects Copilot to your emails, meetings, chats and files. We run hands-on Copilot workshops for both licences.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+        <a class="btn btn-white" href="#demo">Book a free Copilot demo session</a>
+        <a class="btn btn-outline-white" href="#video">Watch the 90-second video</a>
+      </div>
+      <p style="margin-top:12px;font-size:15px;color:rgba(255,255,255,.85)">The free demo session is for HR and L&amp;D managers, up to 3 people per company.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <figure class="hero-img" style="margin-inline:0;margin-bottom:0">
+    <img src="../assets/img/copilot-basic-vs-premium.jpg" alt="Copilot Basic or Premium: on Basic, Copilot works with the web and the files you give it. Premium adds emails and calendar, Teams meetings, Teams chats and SharePoint files. Faiyaz M Khairaz, Microsoft Certified Trainer, runs Copilot workshops for both licences." width="1600" height="900">
+  </figure>
+  <div class="facts">
+    <div class="fact"><b>Basic</b><span>Copilot Chat. Included with eligible Microsoft 365 business plans, at no extra cost.</span></div>
+    <div class="fact"><b class="blue">Premium</b><span>Microsoft 365 Copilot. A paid add-on per user that connects Copilot to your work data.</span></div>
+    <div class="fact"><b class="ink">We train both</b><span>Hands-on Copilot workshops for Basic and Premium licences, onsite or online.</span></div>
+  </div>
+</div>
+
+<!-- Building blocks -->
+<section id="basic">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Already on Basic?</span>
+      <h2>Your team can do a lot on Copilot Basic, starting today</h2>
+      <p class="lead">Basic is the foundation, and it is already a solid stack. Premium does not replace it. Switch to Premium to see what it adds on top.</p>
+    </div>
+    <div class="blocks" id="blocks" data-m="basic">
+      <div class="switch" role="group" aria-label="Choose a licence"><button type="button" data-m="basic" aria-pressed="true">Basic<small>Copilot Chat</small></button><button type="button" data-m="premium" aria-pressed="false">Premium<small>Microsoft 365 Copilot</small></button></div>
+      <div class="stackwrap">
+        <div>
+          <div class="stack">
+            <div class="blk b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Enterprise data protection<small>Prompts and files stay in your company's Microsoft 365</small></span></div>
+            <div class="blk b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/></svg><span>GPT-5 models with reasoning<small>Chosen from the model picker</small></span></div>
+            <div class="blk b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg><span>Answers from the web<small>Up-to-date information, with sources</small></span></div>
+            <div class="blk b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span>Your files<small>Upload them, or ask about the document you have open</small></span></div>
+            <div class="blk b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 14h.01M15 14h.01"/></svg><span>Agents and Skills<small>Word, Excel and PowerPoint agents; Skills rolling out now</small></span></div>
+            <div class="blk b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg><span>Copilot in Outlook<small>Draft replies and summarise long threads</small></span></div>
+            <div class="blk p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Your work data<small>Emails, meetings, Teams chats and files, searched together</small></span></div>
+            <div class="blk p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg><span>Copilot inside Word, Excel, PowerPoint and Teams<small>The full in-app experience, including meeting recaps</small></span></div>
+            <div class="blk p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>Researcher and Analyst agents<small>Deep research and data analysis</small></span></div>
+            <div class="blk p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg><span>Claude model choice and priority access<small>More models, faster at busy times</small></span></div>
+          </div>
+          <p class="found">Your Microsoft 365 plan</p>
+        </div>
+        <div class="side" aria-live="polite">
+          <div class="legend"><span><i class="lb"></i>Basic, included</span><span><i class="lp"></i>Added with Premium</span></div>
+          <p class="big" id="b-big">6 blocks, already in your Microsoft 365 plan.</p>
+          <p id="b-txt">Most teams use only one or two of these. A Basic licence workshop unlocks the rest before you spend on new licences.</p>
+          <a class="btn btn-green" href="#services" style="justify-self:start">See the Basic licence workshop</a>
+        </div>
+      </div>
+      <div class="proof">
+        <p><b>Built on the Basic licence:</b> Copilot wrote the VBA, Bridgestone Finance ran it. One GST mismatch email per supplier, automated.</p>
+        <a href="../case-studies/vba-macros-copilot-gst-supplier-emails/">Read the case study →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A day at work -->
+<section class="alt" id="day">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">See the difference</span>
+      <h2>A day at work with Copilot</h2>
+      <p class="lead">One working day, five moments. Switch the licence and see where Copilot does the job for you, and where you still do part of it.</p>
+    </div>
+    <div class="dayx" id="dayx" data-m="basic">
+      <div class="switch" role="group" aria-label="Choose a licence"><button type="button" data-m="basic" aria-pressed="true">Basic<small>Copilot Chat</small></button><button type="button" data-m="premium" aria-pressed="false">Premium<small>Microsoft 365 Copilot</small></button></div>
+      <ol class="day" id="daylist"></ol>
+      <div class="score" aria-live="polite"><b id="score">3 of 5</b><span id="score-t">moments handled fully on Basic. The other two need you to share the content first.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Video: self-hosted MP4 in assets/video -->
+<section id="video">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Watch</span>
+      <h2>Copilot Basic vs Premium in 90 seconds</h2>
+      <p class="lead">The building blocks, a working day on each licence, and our workshops for both. Turn the sound on for the music.</p>
+    </div>
+    <div class="video">
+      <video controls playsinline preload="none" poster="../assets/img/copilot-basic-vs-premium.jpg" width="1920" height="1080" style="position:absolute;inset:0;width:100%;height:100%;background:#0F2233">
+        <source src="../assets/video/copilot-basic-vs-premium.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="../assets/video/copilot-basic-vs-premium.mp4">Open the video</a>.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison table -->
+<section id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Feature by feature</span>
+      <h2>Copilot Basic vs Premium, side by side</h2>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th scope="col">Feature</th><th scope="col" class="b">Basic (Copilot Chat)</th><th scope="col" class="p">Premium (Microsoft 365 Copilot)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Cost</th><td>Included with eligible Microsoft 365 plans</td><td>Paid add-on, per user per month</td></tr>
+          <tr><th scope="row">Secure AI chat with web answers</th><td class="y">Yes</td><td class="p y">Yes</td></tr>
+          <tr><th scope="row">AI models</th><td class="y">GPT-5 family, with reasoning</td><td class="p y">GPT-5 family plus Anthropic Claude, with priority access</td></tr>
+          <tr><th scope="row">Your emails, meetings, Teams chats and files</th><td>Only files you upload or open, and your inbox inside Outlook</td><td class="p y">Yes, across Microsoft 365</td></tr>
+          <tr><th scope="row">Files per message</th><td>Up to 3</td><td>Up to 20</td></tr>
+          <tr><th scope="row">Copilot in Outlook</th><td class="y">Yes</td><td class="p y">Yes</td></tr>
+          <tr><th scope="row">Copilot inside Word, Excel and PowerPoint</th><td class="y">Yes, in companies with up to 2,000 users*</td><td class="p y">Yes, the full in-app experience</td></tr>
+          <tr><th scope="row">Copilot in Teams meetings (recaps)</th><td class="n">No</td><td class="p y">Yes</td></tr>
+          <tr><th scope="row">Word, Excel and PowerPoint agents</th><td class="y">Yes</td><td class="p y">Yes</td></tr>
+          <tr><th scope="row">Researcher and Analyst agents</th><td class="n">No</td><td class="p y">Yes</td></tr>
+          <tr><th scope="row">Agents your company builds</th><td>Pay-as-you-go</td><td class="p y">Included</td></tr>
+          <tr><th scope="row">Skills</th><td class="y">Rolling out now</td><td class="p y">Rolling out now</td></tr>
+          <tr><th scope="row">Image creation</th><td class="y">Yes</td><td class="p y">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">* Since 15 April 2026, in companies with more than 2,000 Microsoft 365 users, Basic users no longer get Copilot inside Word, Excel, PowerPoint and OneNote. They keep Copilot Chat, Copilot in Outlook, and the Word, Excel and PowerPoint agents. Microsoft changes Copilot often, and we review this page every month.</p>
+  </div>
+</section>
+
+<!-- Which licence fits -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Who needs which</span>
+      <h2>You rarely need Premium for everyone</h2>
+    </div>
+    <div class="fit">
+      <div><h3>Basic is enough</h3><p>Most staff: drafting, summarising, Excel formulas, research, and presentations from their own files.</p><small>Operations, sales support, HR, admin</small></div>
+      <div class="p"><h3>Premium pays off</h3><p>People who live in email, meetings and reports, and need Copilot to find things across all of them.</p><small>Leadership, finance, legal, client-facing roles</small></div>
+      <div class="m"><h3>The usual mix</h3><p>Basic for everyone, Premium for a pilot group or AI Champions. We train both groups, each on what their licence can do.</p><small>The most common setup we see</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Our Copilot services</span>
+      <h2>Copilot workshops for Basic and Premium licences</h2>
+      <p class="lead">Hands-on workshops built around your team's own work, delivered by a Microsoft Certified Trainer. Onsite in India and abroad, or live online. We sign NDAs and can train on your own data.</p>
+    </div>
+    <div class="svc">
+      <article class="wide b">
+        <span class="chip">Basic licence workshop</span>
+        <h3>Get full value from the Copilot you already have</h3>
+        <p>For teams on Copilot Chat. Everyone leaves using Copilot on their real work, without new licences.</p>
+        <ul>
+          <li>Prompting for everyday work tasks</li>
+          <li>Word, Excel and PowerPoint agents, and Skills</li>
+          <li>Copilot with your Excel, Word and PowerPoint files</li>
+          <li>Copilot in Outlook</li>
+          <li>Automations such as VBA written with Copilot</li>
+        </ul>
+        <p class="cs">Case study: <a href="../case-studies/vba-macros-copilot-gst-supplier-emails/">Bridgestone Finance, VBA with Copilot on the Basic licence →</a></p>
+        <div class="meta"><span>Half day or full day</span><span>Onsite or online</span><a class="go" href="#demo">Request this workshop →</a></div>
+      </article>
+      <article class="wide p">
+        <span class="chip">Premium licence workshop</span>
+        <h3>Use Copilot across your emails, meetings and files</h3>
+        <p>For teams on Microsoft 365 Copilot who want a return on every licence.</p>
+        <ul>
+          <li>Copilot in Word, Excel, PowerPoint and Teams</li>
+          <li>Researcher and Analyst agents</li>
+          <li>Meeting recaps, follow-ups and catch-ups</li>
+          <li>Finding answers across email, chats and files</li>
+          <li>Use cases for each department</li>
+        </ul>
+        <p class="cs">Case study: <a href="../case-studies/ai-banking-copilot-enablement.html">Department-wise Copilot enablement for a leading bank →</a></p>
+        <div class="meta"><span>Half day or full day</span><span>Onsite or online</span><a class="go" href="#demo">Request this workshop →</a></div>
+      </article>
+      <article class="free">
+        <span class="chip">Free · HR and L&amp;D managers</span>
+        <h3>Copilot demo session</h3>
+        <p>For HR and L&amp;D managers. We show Copilot live on work like your teams' and suggest which workshop fits, and who would gain from Premium.</p>
+        <div class="meta"><span>30 minutes, online</span><span>Up to 3 people</span><a class="go" href="#demo">Book the demo →</a></div>
+      </article>
+      <article>
+        <span class="chip">Department batches</span>
+        <h3>Department-wise programs</h3>
+        <p>Separate batches for Finance, HR, Sales, Legal and more, each built on that team's own tasks. Basic and Premium users can train side by side.</p>
+        <div class="meta"><span>One batch per department</span><a class="go" href="#demo">Plan your batches →</a></div>
+      </article>
+      <article>
+        <span class="chip">Leadership</span>
+        <h3>Top management briefing</h3>
+        <p>A focused session for senior leaders: what Copilot can do for them, how to lead adoption, and how to decide who needs Premium.</p>
+        <div class="meta"><span>Half day</span><a class="go" href="#demo">Ask about this →</a></div>
+      </article>
+    </div>
+    <p class="clients">Copilot programs delivered for <b>Adani Group, CDSL, DBS Bank, Bridgestone</b> and more.</p>
+  </div>
+</section>
+
+<!-- Demo session -->
+<section class="alt" id="demo">
+  <div class="wrap demo">
+    <div>
+      <span class="eyebrow">Free Copilot demo session</span>
+      <h2 style="margin-top:10px">See what Copilot can do for your company</h2>
+      <p class="lead" style="margin-top:12px">A free, 30-minute online session for <b>HR and L&amp;D managers</b>, for up to 3 people from your company. It helps you plan Copilot training for your teams. It is not a training session.</p>
+      <ol class="steps">
+        <li><h3>We learn about your team</h3><p>Your licence, your departments, and the work that takes the most time.</p></li>
+        <li><h3>A live demo on work like yours</h3><p>Copilot on tasks your team does every day: reports, emails, Excel, presentations.</p></li>
+        <li><h3>A clear next step</h3><p>Which workshop fits, who would gain from Premium, and who is fine on Basic.</p></li>
+      </ol>
+    </div>
+    <form class="form" id="demo-form" novalidate>
+      <h3>Book your free demo session</h3>
+      <div class="two">
+        <label for="d-name">Your name<input id="d-name" type="text" autocomplete="name" required></label>
+        <label for="d-company">Company and city<input id="d-company" type="text" autocomplete="organization" required></label>
+      </div>
+      <div class="two">
+        <label for="d-licence">Your Copilot licence<select id="d-licence"><option>Basic (Copilot Chat)</option><option>Premium (Microsoft 365 Copilot)</option><option>A mix of both</option><option>Not sure</option></select></label>
+        <label for="d-size">Employees to train<select id="d-size"><option>Up to 25</option><option>26 to 100</option><option>101 to 500</option><option>More than 500</option></select></label>
+      </div>
+      <div class="two">
+        <label for="d-role">Your role<select id="d-role"><option value="">Choose your role</option><option>HR manager</option><option>L&amp;D manager</option><option>HR head or CHRO</option><option>Other role</option></select></label>
+        <label for="d-people">People joining the demo<select id="d-people"><option>1</option><option>2</option><option>3</option></select></label>
+      </div>
+      <p class="err" id="d-role-msg" hidden>The free demo session is for HR and L&amp;D managers. For other roles, please <a href="../index.html#enquiry">send an enquiry</a> and we will reply with a proposal.</p>
+      <label for="d-interest">Interested in<select id="d-interest"><option>Basic licence workshop</option><option>Premium licence workshop</option><option>Department-wise programs</option><option>Top management briefing</option><option>Not sure yet</option></select></label>
+      <div class="two">
+        <label for="d-depts">Departments to cover<input id="d-depts" type="text" placeholder="For example Finance, HR"></label>
+        <label for="d-when">Preferred time<select id="d-when"><option>This week</option><option>Next week</option><option>Later this month</option><option>Flexible</option></select></label>
+      </div>
+      <p class="err" id="d-err" hidden>Please add your name and company.</p>
+      <button class="btn btn-green" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg>Request my demo on WhatsApp</button>
+      <p class="fine">For HR and L&amp;D managers only, up to 3 people per company. Opens WhatsApp with your details filled in. Nothing is sent until you press send.</p>
+      <p class="alt-links"><a href="../index.html#enquiry">Prefer email? Send an enquiry</a><a href="../availability/">Check my availability</a></p>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions we hear in every company</h2>
+    </div>
+    <div class="faq">
+      <details><summary>We only have Copilot Basic. Is a workshop worth it?</summary><p>Yes. Most teams use only a small part of Copilot Chat. A Basic licence workshop shows them the models, agents, Skills and file features they already have, on their own work, so you get value before spending on new licences.</p></details>
+      <details><summary>Do you run workshops for both Basic and Premium?</summary><p>Yes. We run separate workshops for Basic and Premium licences, and mixed batches where some people have Premium and others are on Basic. Each person learns what their own licence can do.</p></details>
+      <details><summary>Is Copilot Chat really included for our staff?</summary><p>Yes. Copilot Chat is included with eligible Microsoft 365 business plans at no extra cost. People sign in with their work account, and your IT team can pin it in Teams, Outlook and the Microsoft 365 app so everyone finds it.</p></details>
+      <details><summary>Can Basic users use agents and skills?</summary><p>Yes. Basic users get the Word, Excel and PowerPoint agents and ready-made agents from the Agent Store, and can use agents your company builds on a pay-as-you-go basis. Skills are rolling out to Copilot Chat between October and mid-November 2026.</p></details>
+      <details><summary>Is our data safe?</summary><p>Both licences include enterprise data protection when people sign in with their work account. Copilot only works with content each person already has permission to see, and Microsoft states that prompts and responses are not used to train its foundation models.</p></details>
+      <details><summary>Should we buy Premium for everyone?</summary><p>Usually not. Most teams get strong results on Basic once they are trained. Premium pays off for people who spend their day in email, meetings and reports. The free demo session for HR and L&amp;D managers helps you decide who needs which.</p></details>
+      <details><summary>We have more than 2,000 users. What do Basic users still get?</summary><p>Since 15 April 2026, Basic users in companies of this size no longer get Copilot inside Word, Excel, PowerPoint and OneNote. They keep Copilot Chat with the latest models, the Word, Excel and PowerPoint agents, Copilot in Outlook, and enterprise data protection. A Basic licence workshop shows them how to get the most from these.</p></details>
+      <details><summary>Who can join the free demo session?</summary><p>The demo session is for HR and L&amp;D managers who are planning Copilot training, with up to 3 people from one company. It is a 30-minute planning session, not a training session. Your teams learn hands-on in the workshops.</p></details>
+      <details><summary>Can the workshop use our own files and processes?</summary><p>Yes. Share sample reports or walk us through your processes, and the exercises are built from them. We sign NDAs.</p></details>
+    </div>
+    <p class="updated">Last reviewed: November 2026. Copilot features and licensing change often; we update this page every month.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta">
+      <div class="ph"><img src="../assets/img/faiyaz-m-khairaz-corporate-trainer.jpg" alt="Faiyaz M Khairaz" width="170" height="170"></div>
+      <div>
+        <span class="eyebrow">Basic, Premium or a mix?</span>
+        <h2>Book a free Copilot demo session</h2>
+        <p><b>Faiyaz M Khairaz</b>, Microsoft Certified Trainer with 22+ years in corporate training. Copilot workshops for Basic and Premium licences, for teams across 20 industries. The free demo session is for HR and L&amp;D managers, up to 3 people.</p>
+        <div class="row">
+          <a class="phone" href="tel:+919819006132">+91 98190 06132</a>
+          <a class="btn btn-white" href="#demo">Book a demo session</a>
+          <a class="btn btn-outline-white" href="https://wa.me/919819006132?text=Hi%20Faiyaz%2C%20I%20would%20like%20to%20know%20more%20about%20your%20Copilot%20workshops%20for%20my%20company." target="_blank" rel="noopener">WhatsApp me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Faiyaz M Khairaz</span>
+    <span>Microsoft Certified Trainer and Freelance AI Trainer</span>
+    <a href="../index.html">Back to homepage</a>
+  </div>
+</footer>
+<a class="btn btn-green float" href="#demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="fl"><b>Book a free demo</b><small>For HR and L&amp;D managers</small></span></a>
+
+<script src="../case-studies/case-studies.js"></script>
+<script>
+(function(){
+  function wire(root,fn){
+    root.querySelectorAll('.switch button').forEach(function(b){
+      b.addEventListener('click',function(){
+        root.querySelectorAll('.switch button').forEach(function(x){x.setAttribute('aria-pressed',x===b);});
+        root.setAttribute('data-m',b.getAttribute('data-m'));fn(b.getAttribute('data-m'));
+      });
+    });
+  }
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+
+  /* ---------- Building blocks ---------- */
+  wire(document.getElementById('blocks'),function(m){
+    document.getElementById('b-big').textContent=m==='basic'?'6 blocks, already in your Microsoft 365 plan.':'4 more blocks on top of the same foundation.';
+    document.getElementById('b-txt').textContent=m==='basic'?'Most teams use only one or two of these. A Basic licence workshop unlocks the rest before you spend on new licences.':'Premium does not replace Basic. It connects Copilot to your work data and adds deeper agents, for the roles that need them.';
+  });
+
+  /* ---------- A day at work ---------- */
+  var DAY=[
+    {t:'9:00',h:'Catch up on a long email thread',b:['full','Copilot in Outlook summarises the thread and drafts your reply.'],p:['full','The same, plus it links the meetings and chats where the topic came up.']},
+    {t:'10:30',h:'Client review meeting',b:['part','No meeting recap on Basic. Take notes, paste them in, and Copilot turns them into minutes.'],p:['full','Teams writes the recap for you: decisions, action items and owners.']},
+    {t:'12:00',h:'Monthly MIS in Excel',b:['full','Copilot writes the formulas and explains the numbers in the file you have open.'],p:['full','The same, plus the Analyst agent for deeper analysis across your data.']},
+    {t:'15:00',h:'"What did we agree with the vendor?"',b:['part','Copilot can answer once you upload the emails and files, up to 3 at a time.'],p:['full','Copilot finds it across your emails, chats and files on its own.']},
+    {t:'17:00',h:'Board deck for tomorrow',b:['full','The PowerPoint agent builds a deck from your document in minutes.'],p:['full','The same, and you can point it to the right files in OneDrive or SharePoint by name.']}
+  ];
+  var list=document.getElementById('daylist');
+  function drawDay(m){
+    list.textContent='';var full=0;
+    DAY.forEach(function(d){
+      var s=d[m==='basic'?'b':'p'];if(s[0]==='full')full++;
+      var li=el('li','slot '+s[0]);
+      li.appendChild(el('time',null,d.t));li.appendChild(el('span','dot'));
+      var c=el('div','card'),top=el('div','card-top');
+      top.appendChild(el('h3',null,d.h));top.appendChild(el('span','state',s[0]==='full'?'Copilot does it':'You do part of it'));
+      c.appendChild(top);c.appendChild(el('p',null,s[1]));li.appendChild(c);list.appendChild(li);
+    });
+    document.getElementById('score').textContent=full+' of 5';
+    document.getElementById('score-t').textContent=m==='basic'?'moments handled fully on Basic. The other two need you to share the content first.':'moments handled fully on Premium. Copilot works across your whole day.';
+  }
+  wire(document.getElementById('dayx'),drawDay);drawDay('basic');
+
+  /* ---------- Demo session request: opens WhatsApp with the details ---------- */
+  var f=document.getElementById('demo-form'),err=document.getElementById('d-err');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('d-name'),co=document.getElementById('d-company'),miss=[];
+    [name,co].forEach(function(x){var bad=!x.value.trim();x.classList.toggle('bad',bad);if(bad)miss.push(x);});
+    err.hidden=!miss.length;
+    if(miss.length){miss[0].focus();return;}
+    var role=document.getElementById('d-role'),rmsg=document.getElementById('d-role-msg');
+    var okRole=role.value&&role.value!=='Other role';
+    role.classList.toggle('bad',!okRole);rmsg.hidden=okRole||!role.value;
+    if(!role.value){rmsg.hidden=true;err.textContent='Please choose your role.';err.hidden=false;role.focus();return;}
+    if(!okRole){role.focus();return;}
+    err.textContent='Please add your name and company.';
+    var v=function(id){return document.getElementById(id).value.trim();};
+    var msg='Hi Faiyaz, I am planning Copilot training and would like the free Copilot demo session for HR and L&D managers.\n\n'+
+      'Name: '+v('d-name')+'\nRole: '+v('d-role')+'\nCompany: '+v('d-company')+'\nPeople joining: '+v('d-people')+'\nCopilot licence: '+v('d-licence')+
+      '\nEmployees to train: '+v('d-size')+'\nInterested in: '+v('d-interest')+(v('d-depts')?'\nDepartments: '+v('d-depts'):'')+'\nPreferred time: '+v('d-when');
+    window.open('https://wa.me/919819006132?text='+encodeURIComponent(msg),'_blank','noopener');
+  });
+  /* Links to a workshop pre-select it in the form */
+  document.querySelectorAll('.svc article').forEach(function(a){
+    var chip=a.querySelector('.chip'),go=a.querySelector('.go');if(!chip||!go)return;
+    var map={'Basic licence workshop':'Basic licence workshop','Premium licence workshop':'Premium licence workshop','Department batches':'Department-wise programs','Leadership':'Top management briefing'};
+    var want=map[chip.textContent.trim()];if(!want)return;
+    go.addEventListener('click',function(){document.getElementById('d-interest').value=want;});
+  });
+})();
+</script>
+</body>
+</html>
